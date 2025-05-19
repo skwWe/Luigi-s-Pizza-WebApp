@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\luigi-logo.png",
+      "PackagePath": "staticwebassets\\images\\luigi-logo.png"
+    },
+    {
       "Id": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

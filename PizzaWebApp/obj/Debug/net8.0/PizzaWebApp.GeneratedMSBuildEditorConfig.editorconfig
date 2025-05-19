@@ -28,8 +28,8 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/RegisterPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXJQYWdlLnJhem9y
+[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Layout/RegisterLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XFJlZ2lzdGVyTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/_Imports.razor]
@@ -43,3 +43,7 @@ build_metadata.AdditionalFiles.CssScope = b-1ihmbsgivg
 [C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-msdzk85bwa
+
+[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/RegisterPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXJQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-88vdfvydvm

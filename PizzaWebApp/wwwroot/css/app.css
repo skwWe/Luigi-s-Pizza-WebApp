@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow:hidden
 }
 
 h1:focus {
@@ -101,3 +102,5 @@ a, .btn-link {
 code {
     color: #c02d76;
 }
+
+
