@@ -1,9 +1,10 @@
 ﻿@page "/"
 @page "/register"
 @layout RegisterLayout
-@using Services;
+@using AuthServiceTool;
 @inject AuthService AuthService
 @inject NavigationManager NavigationManager
+@inject Supabase.Client SupabaseClient
 @using Models;
 
 <div class="page-container">
@@ -41,15 +42,48 @@
 </div>
 
 @code {
-    private RegisterModel registerModel = new RegisterModel();
+    private RegisterModel registerModel = new();
+    private string? errorMessage;
 
-    private void HandleRegistration()
+    private async Task HandleRegistration()
     {
-        var additionalData = new Dictionary<string, object>
+        errorMessage = null;
+
+        if (registerModel.Password != registerModel.ConfirmPassword)
         {
-            { "first_name", registerModel.FirstName },
-            { "last_name", registerModel.LastName },
-            { "age", registerModel.Age }
-        };
+            errorMessage = "Пароль и подтверждение не совпадают.";
+            return;
+        }
+
+        var response = await AuthService.RegisterAsync(registerModel.Email, registerModel.Password);
+
+        if (response?.User != null)
+        {
+            var profile = new UserProfile
+                {
+                    UserId = response.User.Id,
+                    FirstName = registerModel.FirstName,
+                    LastName = registerModel.LastName,
+                    Age = registerModel.Age,
+                    Email = registerModel.Email
+                };
+
+            var insertResult = await SupabaseClient
+                .From<UserProfile>()
+                .Insert(profile);
+
+            if (insertResult.Models.Any())
+            {
+                NavigationManager.NavigateTo("/login");
+            }
+            else
+            {
+                errorMessage = "Ошибка при сохранении данных профиля.";
+            }
+        }
+        else
+        {
+            errorMessage = "Не удалось зарегистрировать пользователя. Email может быть занят.";
+        }
     }
 }

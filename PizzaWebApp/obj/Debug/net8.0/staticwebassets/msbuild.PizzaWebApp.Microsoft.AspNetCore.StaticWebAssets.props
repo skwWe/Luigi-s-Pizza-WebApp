@@ -138,8 +138,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>rsskgi0rg1</Fingerprint>
-      <Integrity>NdmyZOfeV16gH/X+Osmr80BWwmv9hdRPagLiYjtWjI0=</Integrity>
+      <Fingerprint>2atmxdby4d</Fingerprint>
+      <Integrity>Rn0F3tym5TnJZN/i67Fo299S8O9NBrKijObffOLvz5c=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\PizzaWebApp.styles.css'))</OriginalItemSpec>

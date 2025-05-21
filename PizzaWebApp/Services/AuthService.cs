@@ -1,31 +1,25 @@
 ﻿using Supabase;
+using Supabase.Gotrue;
+using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
 
-namespace PizzaWebApp.Services
+namespace AuthServiceTool
 {
     public class AuthService
     {
-        private readonly string _supabaseUrl;
-        private readonly string _supabaseKey;
-        private Supabase.Client _supabaseClient;
-        private readonly IConfiguration _configuration;
+        private readonly Supabase.Client _client;
 
-        public AuthService(IConfiguration configuration)
+        public AuthService(Supabase.Client client)
         {
-            _configuration = configuration;
-            _supabaseUrl = _configuration["Supabase:Url"];
-            _supabaseKey = _configuration["Supabase:Key"];
+            _client = client;
         }
 
-        public async Task InitializeSupabase()
+        public async Task<Session?> RegisterAsync(string email, string password)
         {
-            var options = new SupabaseOptions
-            {
-                AutoRefreshToken = true
-            };
-
-            _supabaseClient = new Supabase.Client(_supabaseUrl, _supabaseKey, options);
-            await _supabaseClient.InitializeAsync();
-
+            var session = await _client.Auth.SignUp(email, password);
+            return session;
         }
+
     }
 }
+

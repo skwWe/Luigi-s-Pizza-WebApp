@@ -2418,6 +2418,6 @@ C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\comp
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\c4o84h0ms9-rcys532pwr.gz
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\scopedcss\Pages\RegisterPage.razor.rz.scp.css
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-vzns44hrs3.gz
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-qnwoncrkzh.gz
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-6emm84lewz.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-kxp4iueoze.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-k5kwlt29xp.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-3n9ar880ye.gz
