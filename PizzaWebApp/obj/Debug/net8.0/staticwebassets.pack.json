@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\PizzaWebApp.styles.css"
     },
     {
+      "Id": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\Profil.css",
+      "PackagePath": "staticwebassets\\css\\Profil.css"
+    },
+    {
       "Id": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

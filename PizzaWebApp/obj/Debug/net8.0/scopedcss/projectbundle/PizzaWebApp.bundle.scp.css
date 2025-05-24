@@ -160,13 +160,120 @@ main[b-1ihmbsgivg] {
         overflow-y: auto;
     }
 }
+/* /Pages/LoginPage.razor.rz.scp.css */
+.page-container[b-kklomkds1q] {
+    display: flex;
+    width: 100%;
+    min-width: 1920px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.left-panel[b-kklomkds1q] {
+    flex: 1;
+    min-width: 60%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-panel[b-kklomkds1q] {
+    flex: 1;
+    min-width: 40%;
+    background: #0b4032;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.logo[b-kklomkds1q] {
+    width: 300px;
+    margin: 0 auto 30px;
+}
+
+.brand[b-kklomkds1q] {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.description[b-kklomkds1q] {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.thanks[b-kklomkds1q] {
+    margin-top: auto;
+    font-size: 16px;
+    margin-top: 300px;
+}
+
+.form-container[b-kklomkds1q] {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+}
+
+.form-group[b-kklomkds1q] {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .form-group label[b-kklomkds1q] {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+.input[b-kklomkds1q] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.btn-register[b-kklomkds1q] {
+    width: 100%;
+    background-color: #0b4032;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 50px
+}
+
+    .btn-register:hover[b-kklomkds1q] {
+        background-color: #095f49;
+    }
+
+.login-link[b-kklomkds1q] {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
 /* /Pages/RegisterPage.razor.rz.scp.css */
 
 
 .page-container[b-88vdfvydvm] {
     display: flex;
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    min-width: 1920px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-wrap: wrap;
     font-family: 'Segoe UI', sans-serif;
 }
 
@@ -251,7 +358,7 @@ main[b-1ihmbsgivg] {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 100px
+    margin-top: 50px
 }
 
     .btn-register:hover[b-88vdfvydvm] {

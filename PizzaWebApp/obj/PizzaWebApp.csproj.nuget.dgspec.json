@@ -58,11 +58,15 @@
             "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.3.0, )"
             },
             "Microsoft.Graph": {
               "target": "Package",
-              "version": "[5.78.0, )"
+              "version": "[5.79.0, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",

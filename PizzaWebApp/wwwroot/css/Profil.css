@@ -1,0 +1,95 @@
+﻿body {
+    margin: 0 auto;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+/* Шапка сайта */
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 25px 40px;
+    background-color: #0F4136;
+    color: white;
+}
+
+/* Кнопка "Ваш профиль" */
+.profile-btn {
+    padding: 10px 30px; /* увеличенные внутренние отступы */
+
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    background-color: #0F4136;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.3s;
+}
+
+    .profile-btn:hover {
+        background-color: #2ecc71;
+    }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -500px; /* скрыт справа, теперь на 100px шире */
+    width: 500px; /* увеличена ширина */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    top: 120px;
+}
+
+    /* Когда открыт */
+    .sidebar.open {
+        right: 0; /* появляется */
+    }
+
+/* Содержимое профиля в сайдбаре */
+.profile-info {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .profile-info img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .profile-info h4 {
+        margin: 0;
+    }
+
+/* Меню в сайдбаре */
+.menu {
+    padding: 10px 20px;
+}
+
+    .menu a {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+    }
+
+        .menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+    /* Иконки (можно заменить на свои) */
+    .menu span {
+        margin-left: 10px;
+    }
+
+

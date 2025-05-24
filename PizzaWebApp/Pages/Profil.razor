@@ -1,0 +1,45 @@
+﻿@page "/Profil"
+<head>
+    
+    <link rel="stylesheet" href="css/Profil.css" />
+</head>
+<div class="header">
+    <button id="profileButton" class="profile-btn">Ваш профиль</button>
+</div>
+
+<!-- Сайдбар -->
+
+
+<div id="sidebar" class="sidebar">
+    <div class="profile-info">
+        <img src="https://via.placeholder.com/80" alt="Профиль" />
+        <h4>Luigi Mario</h4>
+        <p>LuigiMario2023@gmail.com</p>
+    </div>
+    <div class="menu">
+        <a href="#"><span>&#10084;</span> Favourites</a>
+        <a href="#"><span>&#128229;</span> Downloads</a>
+        <a href="#"><span>&#127758;</span> Languages</a>
+        <a href="#"><span>&#128205;</span> Location</a>
+        <a href="#"><span>&#128276;</span> Subscription</a>
+        <a href="#"><span>&#128187;</span> Display</a>
+        <a href="#"><span>&#128465;</span> Clear Cache</a>
+        <a href="#"><span>&#128338;</span> Clear History</a>
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById('profileButton');
+    const sidebar = document.getElementById('sidebar');
+
+    let isOpen = false;
+
+    btn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        sidebar.classList.add('open');
+      } else {
+        sidebar.classList.remove('open');
+      }
+    });
+</script>

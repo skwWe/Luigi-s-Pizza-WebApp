@@ -1,6 +1,7 @@
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map
+wwwroot\css\Profil.css
 wwwroot\favicon.png
 wwwroot\icon-192.png
 wwwroot\images\luigi-logo.png

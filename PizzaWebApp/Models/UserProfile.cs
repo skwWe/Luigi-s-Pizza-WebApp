@@ -3,25 +3,23 @@ using Supabase.Postgrest.Models;
 
 namespace PizzaWebApp.Models
 {
-    [Table("users")] // Или "profiles", если таблица называется иначе
+    [Table("profiles")]
     public class UserProfile : BaseModel
     {
-        [PrimaryKey("id", false)]
-        public int Id { get; set; }
-
+        [PrimaryKey("user_id", false)]
         [Column("user_id")]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
 
         [Column("first_name")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [Column("last_name")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
         [Column("age")]
         public int Age { get; set; }
 
         [Column("email")]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
     }
 }

@@ -2,8 +2,11 @@
 
 .page-container {
     display: flex;
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    min-width: 1920px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-wrap: wrap;
     font-family: 'Segoe UI', sans-serif;
 }
 
@@ -88,7 +91,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 100px
+    margin-top: 50px
 }
 
     .btn-register:hover {

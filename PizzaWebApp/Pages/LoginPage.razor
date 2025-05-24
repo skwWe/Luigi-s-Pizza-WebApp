@@ -1,6 +1,62 @@
 ﻿@page "/login"
-<h3>LoginPage</h3>
+@inject NavigationManager NavigationManager
+@inject Supabase.Client SupabaseClient
+@using Supabase.Gotrue
+@using Models
+
+<div class="page-container">
+    <div class="left-panel">
+        <div class="form-container">
+            <h1 style="margin-bottom: 20px;">Авторизация</h1>
+
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="error-message">@errorMessage</div>
+            }
+
+            <div class="form-group">
+                <label>Login</label>
+                <input type="text" class="input" placeholder="Введите логин" @bind="loginModel.Email" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="input" placeholder="Введите пароль" @bind="loginModel.Password" />
+            </div>
+
+            <button class="btn-register" @onclick="HandleAuthorization"><strong>Зарегистрироваться</strong></button>
+        </div>
+    </div>
+        <div class="right-panel">
+            <img src="images/luigi-logo.png" alt="Luigi's Logo" class="logo" />
+            <p class="description">Приложение для сотрудников</p>
+            <p class="thanks">Спасибо что вы с нами!</p>
+        </div>
+</div>
 
 @code {
+    private LoginModel loginModel = new();
+    private string? errorMessage;
+    private async Task HandleAuthorization()
+    {
+        errorMessage = null;
 
+        try
+        {
+            var session = await SupabaseClient.Auth.SignInWithPassword(loginModel.Email, loginModel.Password);
+
+            if (session.User != null)
+            {
+                // Перенаправление на главную или нужную страницу
+                NavigationManager.NavigateTo("/Profil");
+            }
+            else
+            {
+                errorMessage = "Неверный email или пароль.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Ошибка авторизации: {ex.Message}";
+        }
+}
 }

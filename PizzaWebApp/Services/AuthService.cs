@@ -2,6 +2,7 @@
 using Supabase.Gotrue;
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
+using System.Linq.Expressions;
 
 namespace AuthServiceTool
 {
@@ -16,10 +17,17 @@ namespace AuthServiceTool
 
         public async Task<Session?> RegisterAsync(string email, string password)
         {
-            var session = await _client.Auth.SignUp(email, password);
-            return session;
+            try
+            {
+                var session = await _client.Auth.SignUp(email, password);
+                return session;
+            }
+            catch (Exception ex)
+            {
+                var session = await _client.Auth.SignUp(email, password);
+                return session;
+            }
         }
-
     }
 }
 
