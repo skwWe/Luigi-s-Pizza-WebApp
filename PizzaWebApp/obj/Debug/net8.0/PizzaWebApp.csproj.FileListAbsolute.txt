@@ -2989,6 +2989,6 @@ D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\PizzaWebApp.d
 D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\refint\PizzaWebApp.dll
 D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\PizzaWebApp.pdb
 D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\ref\PizzaWebApp.dll
-D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-adln2hjikj.gz
-D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-1uesd5v7e6.gz
-D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-nnvryeubxo.gz
+D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-p2zqal3gji.gz
+D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-kpka1y66hc.gz
+D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-8703ej1b1i.gz

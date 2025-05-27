@@ -102,8 +102,7 @@
               "RelativeToolTip": "PizzaWebApp\\Layout\\MainLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T18:20:56.327Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T18:20:56.327Z"
             },
             {
               "$type": "Document",
@@ -115,8 +114,7 @@
               "RelativeToolTip": "PizzaWebApp\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T17:19:46.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T17:19:46.852Z"
             },
             {
               "$type": "Document",
@@ -128,8 +126,7 @@
               "RelativeToolTip": "PizzaWebApp\\Services\\PrifilService.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAowE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T19:40:24.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-26T19:40:24.833Z"
             },
             {
               "$type": "Document",
@@ -141,8 +138,7 @@
               "RelativeToolTip": "PizzaWebApp\\Models\\Profil.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T19:33:26.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-26T19:33:26.875Z"
             },
             {
               "$type": "Document",
@@ -165,8 +161,7 @@
               "RelativeToolTip": "PizzaWebApp\\wwwroot\\css\\Profil.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-26T17:28:34.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-26T17:28:34.974Z"
             },
             {
               "$type": "Document",
@@ -190,8 +185,7 @@
               "RelativeToolTip": "PizzaWebApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T16:08:50.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T16:08:50.357Z"
             },
             {
               "$type": "Document",
@@ -201,7 +195,7 @@
               "RelativeDocumentMoniker": "PizzaWebApp\\Pages\\Profil.razor",
               "ToolTip": "D:\\\u043F\u0440\u043E\u0435\u043A\u04422\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Pages\\Profil.razor",
               "RelativeToolTip": "PizzaWebApp\\Pages\\Profil.razor",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAABoAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAAAMQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-24T16:06:35.599Z",
               "EditorCaption": ""
