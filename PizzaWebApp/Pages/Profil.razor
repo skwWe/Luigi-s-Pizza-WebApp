@@ -1,6 +1,13 @@
 ﻿@page "/Profil"
+@using PizzaWebApp.Models
+@using System.Text.RegularExpressions
+@using YourNamespace.Services
+@inject ProfileService ProfileService
+@inject Supabase.Client SupabaseClient
+@inject IJSRuntime JSRuntime
+
 <head>
-    
+
     <link rel="stylesheet" href="css/Profil.css" />
 </head>
 <div class="header">
@@ -10,36 +17,375 @@
 <!-- Сайдбар -->
 
 
-<div id="sidebar" class="sidebar">
+<div id="sidebar" class="sidebar @(IsOpen ? "open" : "")">
     <div class="profile-info">
-        <img src="https://via.placeholder.com/80" alt="Профиль" />
-        <h4>Luigi Mario</h4>
-        <p>LuigiMario2023@gmail.com</p>
+        <img src="/images/image 4.png" />
+        <div>
+            <h1>Привет, <span>@FirstName</span> <span>@LastName</span>!</h1>
+        </div>
+        <h6><span>@Email</span></h6>
+    </div>
+ 
+
+    <div class="menu">
+        <div class="menu-item">
+            <button id="favourites-link"
+                    @onclick="ToggleNameEdit"
+                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+                <span class="menu-icon">✏️</span>
+                <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingName ? "Отмена" : "Изменить имя")</span>
+                <span class="menu-arrow">›</span>
+            </button>
+
+            @if (IsEditingName)
+            {
+                <div class="edit-container"
+                     style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                    <input type="text"
+                           @bind="TempFirstName"
+                           @ref="nameInput"
+                           placeholder="Введите новое имя"
+                           style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
+
+                    <button @onclick="SaveName"
+                            style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
+                            title="Сохранить">
+                        &#10003;
+                    </button>
+                </div>
+            }
+        </div>
     </div>
     <div class="menu">
-        <a href="#"><span>&#10084;</span> Favourites</a>
-        <a href="#"><span>&#128229;</span> Downloads</a>
-        <a href="#"><span>&#127758;</span> Languages</a>
-        <a href="#"><span>&#128205;</span> Location</a>
-        <a href="#"><span>&#128276;</span> Subscription</a>
-        <a href="#"><span>&#128187;</span> Display</a>
-        <a href="#"><span>&#128465;</span> Clear Cache</a>
-        <a href="#"><span>&#128338;</span> Clear History</a>
+        <div class="menu-item">
+            <button id="favourites-link1"
+                    @onclick="ToggleLastNameEdit"
+                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+                <span class="menu-icon" style="margin-right: 8px;">📝</span> <!-- Иконка с отступом справа -->
+                <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingLastName ? "Отмена" : "Изменить фамилию")</span>
+                <span class="menu-arrow">›</span>
+            </button>
+
+            @if (IsEditingLastName)
+            {
+                <div class="edit-container"
+                     style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                    <input type="text"
+                           @bind="TempLastName"
+                           @ref="lastNameInput"
+                           placeholder="Введите новую фамилию"
+                           style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
+
+                    <button @onclick="SaveLastName"
+                            style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
+                            title="Сохранить">
+                        &#10003;
+                    </button>
+                </div>
+            }
+        </div>
     </div>
-</div>
+    <div class="menu">
+        <div class="menu-item">
+            <button id="favourites-link1"
+                    @onclick="ToggleEmailEdit"
+                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+                <span class="menu-icon" style="margin-right: 8px;">✉️</span> <!-- Иконка почты -->
+                <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingEmail ? "Отмена" : "Изменить почту")</span>
+                <span class="menu-arrow">›</span>
+            </button>
+
+            @if (IsEditingEmail)
+            {
+                <div class="edit-container"
+                     style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="email"
+                               @bind="TempEmail"
+                               @oninput="ValidateEmail"
+                               @ref="EmailInput"
+                               placeholder="user@example.com"
+                               style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid @(IsEmailValid ? "#666" : "red"); border-radius: 4px;" />
+
+                        <button @onclick="SaveEmail"
+                                disabled="@(!IsEmailValid)"
+                                style="padding: 6px 12px; font-size: 1rem; cursor: @(IsEmailValid ? "pointer" : "not-allowed"); background-color: @(IsEmailValid ? "#4CAF50" : "#cccccc"); color: white; border: none; border-radius: 4px;"
+                                title="@(IsEmailValid ? "Сохранить" : "Введите корректный email")">
+                            &#10003;
+                        </button>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(EmailValidationMessage))
+                    {
+                        <div style="color: red; font-size: 0.8rem; margin-top: -4px;">
+                            @EmailValidationMessage
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+   
+        <div class="menu-divider"></div>
+
+        <!-- Загрузка фото -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">⏳</span> <!-- Или 🕒 -->
+        <span class="menu-text">Время активности</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <!-- Дни рождения -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">🎂</span> <!-- Или 🎁 -->
+        <span class="menu-text">Дни рождения</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <!-- Уведомления -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">🔔</span> <!-- Оставляем, идеально подходит -->
+        <span class="menu-text">Уведомления</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <!-- Платежные методы -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">💳</span> <!-- Или 💰 -->
+        <span class="menu-text">Платежные методы</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <div class="menu-divider"></div>
+
+    <!-- Язык интерфейса -->
+    
+        <!-- Language Selector -->
+    <a href="#" class="menu-item">
+                  
+                <span class="menu-icon">🌐</span>
+            <span class="menu-text">Язык интерфейса</span>
+                   
+                
+                <span class="menu-arrow">›</span>
+            </a>
+       
+       
+    <!-- Настройки безопасности -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">🔒</span> <!-- Или 🛡️ -->
+        <span class="menu-text">Настройки безопасности</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <div class="menu-divider"></div>
+
+    <!-- Сообщения -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">✉️</span> <!-- Или 📩 -->
+        <span class="menu-text">Сообщения</span>
+        <span class="menu-arrow">›</span>
+    </a>
+    </div>
+
+
+   
+
+
+
+
+@code {
+    private bool IsOpen { get; set; }
+    private string FirstName { get; set; } = "";
+    private string LastName { get; set; } = "";
+    private string Email { get; set; } = "";
+
+
+
+    private bool IsEditingName { get; set; }
+    private string TempFirstName { get; set; }
+    private ElementReference nameInput;
+
+    private bool IsEditingLastName = false;
+    private string TempLastName { get; set; }
+    private ElementReference lastNameInput;
+
+
+    private bool IsEditingEmail { get; set; }
+    private string TempEmail { get; set; } = string.Empty;
+    private ElementReference EmailInput;
+    private bool IsEmailValid { get; set; }
+    private string EmailValidationMessage { get; set; } = string.Empty;
+
+
+
+        private bool IsEnglish { get; set; } = false;
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProfile();
+    }
+
+    private async Task LoadProfile()
+    {
+        var profile = await ProfileService.GetProfileAsync();
+        if (profile.HasValue)
+        {
+            FirstName = profile.Value.FirstName;
+            LastName = profile.Value.LastName;
+            Email = profile.Value.Email;
+        }
+    }
+
+    private async Task ToggleNameEdit()
+    {
+        IsEditingName = !IsEditingName;
+        if (IsEditingName)
+        {
+            // Закрываем редактирование фамилии, если оно было открыто
+            IsEditingLastName = false;
+            TempFirstName = FirstName;
+            await Task.Delay(50);
+            await nameInput.FocusAsync();
+        }
+    }
+
+    private async Task SaveName()
+    {
+        IsEditingLastName = !IsEditingLastName;
+        if (!string.IsNullOrWhiteSpace(TempFirstName))
+        {
+            FirstName = TempFirstName;
+            await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
+        }
+        IsEditingName = false;
+        StateHasChanged();
+    }
+
+    private async Task ToggleLastNameEdit()
+    {
+        IsEditingLastName = !IsEditingLastName;
+        if (IsEditingLastName)
+        {
+            // Закрываем редактирование имени, если оно было открыто
+            IsEditingName = false;
+            TempLastName = LastName;
+            await Task.Delay(50);
+            await lastNameInput.FocusAsync();
+        }
+    }
+
+    private async Task SaveLastName()
+    {
+        if (!string.IsNullOrWhiteSpace(TempLastName))
+        {
+            LastName = TempLastName;
+            await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
+        }
+        IsEditingLastName = false; // Закрываем только редактирование фамилии
+        StateHasChanged();
+    }
+
+
+
+    private async Task ToggleEmailEdit()
+    {
+        IsEditingEmail = !IsEditingEmail;
+        if (IsEditingEmail)
+        {
+            TempEmail = Email;
+            IsEmailValid = true; // Сбрасываем статус валидации
+            EmailValidationMessage = string.Empty;
+            await Task.Delay(50);
+            await EmailInput.FocusAsync();
+        }
+    }
+
+    private void ValidateEmail(ChangeEventArgs e)
+    {
+        TempEmail = e.Value?.ToString() ?? string.Empty;
+        IsEmailValid = Regex.IsMatch(TempEmail, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+
+        EmailValidationMessage = IsEmailValid
+            ? string.Empty
+            : "Введите корректный email (например: user@example.com)";
+    }
+
+    private async Task SaveEmail()
+    {
+        if (IsEmailValid && !string.IsNullOrWhiteSpace(TempEmail))
+        {
+            Email = TempEmail;
+            await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
+            IsEditingEmail = false;
+            StateHasChanged();
+        }
+    }
+
+        
+}
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 <script>
-    const btn = document.getElementById('profileButton');
-    const sidebar = document.getElementById('sidebar');
+    // Простой вариант без Blazor JS Interop
+    document.getElementById('profileButton')?.addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) {
+            const isOpen = sidebar.classList.toggle('open');
+            sessionStorage.setItem('sidebarOpen', isOpen);
+        }
+    });
 
-    let isOpen = false;
-
-    btn.addEventListener('click', () => {
-      isOpen = !isOpen;
-      if (isOpen) {
-        sidebar.classList.add('open');
-      } else {
-        sidebar.classList.remove('open');
-      }
+    // Восстановление состояния при загрузке
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedState = sessionStorage.getItem('sidebarOpen');
+        const sidebar = document.getElementById('sidebar');
+        if (savedState && sidebar) {
+            sidebar.classList.toggle('open', savedState === 'true');
+        }
     });
 </script>
+
+
+
+
+<footer class="footer">
+    <div id="current-time"></div>
+</footer>
+<script>
+    function updateTime() {
+      const now = new Date();
+
+      // Форматируем часы и минуты в "HH:MM"
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+
+      const timeString = `${hours}:${minutes}`;
+
+      // Вставляем время в элемент с id="current-time"
+      document.getElementById('current-time').textContent = timeString;
+    }
+
+    // Обновляем время сразу при загрузке страницы
+    updateTime();
+
+    // Обновляем время каждую секунду
+    setInterval(updateTime, 1000);
+</script>
+
+
+

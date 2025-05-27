@@ -4,6 +4,7 @@ using AuthServiceTool;
 using PizzaWebApp;
 
 using Supabase;
+using YourNamespace.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -30,6 +31,11 @@ builder.Services.AddSingleton<Supabase.Client>(sp =>
 
 // Регистрация AuthService с внедрением Supabase клиента
 builder.Services.AddScoped<AuthService>();
+// Program.cs
+builder.Services.AddScoped<ProfileService>(); // Добавьте эту строку
+
+
+
 
 await builder.Build().RunAsync();
 

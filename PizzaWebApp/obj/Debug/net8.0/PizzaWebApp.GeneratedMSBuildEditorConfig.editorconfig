@@ -13,41 +13,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = PizzaWebApp
 build_property.RootNamespace = PizzaWebApp
-build_property.ProjectDir = C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\
+build_property.ProjectDir = D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp
+build_property.MSBuildProjectDirectory = D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/App.razor]
+[D:/проект2/Luigi-s-Pizza-WebApp/PizzaWebApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/Profil.razor]
+[D:/проект2/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/Profil.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/_Imports.razor]
+[D:/проект2/Luigi-s-Pizza-WebApp/PizzaWebApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Layout/MainLayout.razor]
+[D:/проект2/Luigi-s-Pizza-WebApp/PizzaWebApp/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1ihmbsgivg
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Layout/NavMenu.razor]
+[D:/проект2/Luigi-s-Pizza-WebApp/PizzaWebApp/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-msdzk85bwa
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/LoginPage.razor]
+[D:/проект2/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/LoginPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-kklomkds1q
 
-[C:/Users/Dom/source/repos/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/RegisterPage.razor]
+[D:/проект2/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/RegisterPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXJQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-88vdfvydvm
