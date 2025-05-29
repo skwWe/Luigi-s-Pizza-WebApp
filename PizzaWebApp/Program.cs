@@ -5,6 +5,9 @@ using PizzaWebApp;
 
 using Supabase;
 using YourNamespace.Services;
+using Microsoft.JSInterop;
+using Microsoft.Extensions.Hosting;
+using PizzaWebApp.Models;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -28,11 +31,18 @@ builder.Services.AddSingleton<Supabase.Client>(sp =>
 
     return client;
 });
+builder.Services.AddScoped(sp => new HttpClient
+{
+    Timeout = TimeSpan.FromSeconds(30)
+});
+
 
 // Регистрация AuthService с внедрением Supabase клиента
 builder.Services.AddScoped<AuthService>();
+
 // Program.cs
 builder.Services.AddScoped<ProfileService>(); // Добавьте эту строку
+
 
 
 

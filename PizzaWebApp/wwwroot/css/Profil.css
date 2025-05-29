@@ -207,3 +207,112 @@
         background-color: #f8f9fa;
         border-left: 3px solid #4CAF50;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Добавляем новые стили для аватарки */
+.avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+.avatar-upload-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.avatar-container:hover .avatar-upload-label {
+    opacity: 1;
+}
+
+.avatar-upload-text {
+    font-size: 14px;
+    text-align: center;
+}
+
+.upload-error {
+    color: #ff4444;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.uploading-text {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.avatar-loading {
+    opacity: 0.5;
+    filter: blur(2px);
+    transition: opacity 0.3s ease;
+}

@@ -14022,11 +14022,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\проект2\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
+      "projectUniqueName": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
       "projectName": "PizzaWebApp",
-      "projectPath": "D:\\проект2\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
+      "projectPath": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
       "packagesPath": "C:\\Users\\Nastya\\.nuget\\packages\\",
-      "outputPath": "D:\\проект2\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\",
+      "outputPath": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

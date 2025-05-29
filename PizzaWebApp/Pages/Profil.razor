@@ -2,10 +2,12 @@
 @using PizzaWebApp.Models
 @using System.Text.RegularExpressions
 @using YourNamespace.Services
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components
 @inject ProfileService ProfileService
 @inject Supabase.Client SupabaseClient
 @inject IJSRuntime JSRuntime
-
+@inject NavigationManager NavigationManager
 <head>
 
     <link rel="stylesheet" href="css/Profil.css" />
@@ -18,20 +20,53 @@
 
 
 <div id="sidebar" class="sidebar @(IsOpen ? "open" : "")">
-    <div class="profile-info">
-        <img src="/images/image 4.png" />
-        <div>
-            <h1>Привет, <span>@FirstName</span> <span>@LastName</span>!</h1>
-        </div>
-        <h6><span>@Email</span></h6>
+    <div class="avatar-container">
+        @if (isAvatarLoading)
+        {
+            <div class="avatar-loading">
+                <span>Загрузка...</span>
+            </div>
+        }
+        else if (hasAvatar && !string.IsNullOrEmpty(AvatarUrl))
+        {
+            <img src="@($"{AvatarUrl}?v={cacheBuster}")"
+                 class="profile-avatar"
+                 loading="lazy"
+                 onerror="this.onerror=null;this.src='/images/image 4.png';"
+                 style="@(isAvatarLoading ? "opacity:0.5;" : "")" />
+        }
+        else
+        {
+            <img src="/images/image 4.png"
+                 class="profile-avatar"
+                 style="@(isAvatarLoading ? "opacity:0.5;" : "")" />
+        }
+
+        <label for="avatar-upload" class="avatar-upload-label">
+            <span class="avatar-upload-text">Изменить фото</span>
+            <InputFile id="avatar-upload"
+            accept="image/*"
+            OnChange="HandleFileUpload"
+            style="display: none;" />
+        </label>
+
+        @if (!string.IsNullOrEmpty(avatarError))
+        {
+            <div class="avatar-error">@avatarError</div>
+        }
     </div>
- 
+    <div>
+        <h1>Привет, <span>@FirstName</span> <span>@LastName</span>!</h1>
+    </div>
+    <h6><span>@Email</span></h6>
+
+
 
     <div class="menu">
         <div class="menu-item">
             <button id="favourites-link"
-                    @onclick="ToggleNameEdit"
-                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+            @onclick="ToggleNameEdit"
+            style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
                 <span class="menu-icon">✏️</span>
                 <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingName ? "Отмена" : "Изменить имя")</span>
                 <span class="menu-arrow">›</span>
@@ -40,16 +75,16 @@
             @if (IsEditingName)
             {
                 <div class="edit-container"
-                     style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
                     <input type="text"
-                           @bind="TempFirstName"
-                           @ref="nameInput"
-                           placeholder="Введите новое имя"
-                           style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
+                    @bind="TempFirstName"
+                    @ref="nameInput"
+                    placeholder="Введите новое имя"
+                    style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
 
                     <button @onclick="SaveName"
-                            style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
-                            title="Сохранить">
+                    style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
+                    title="Сохранить">
                         &#10003;
                     </button>
                 </div>
@@ -59,8 +94,8 @@
     <div class="menu">
         <div class="menu-item">
             <button id="favourites-link1"
-                    @onclick="ToggleLastNameEdit"
-                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+            @onclick="ToggleLastNameEdit"
+            style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
                 <span class="menu-icon" style="margin-right: 8px;">📝</span> <!-- Иконка с отступом справа -->
                 <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingLastName ? "Отмена" : "Изменить фамилию")</span>
                 <span class="menu-arrow">›</span>
@@ -69,16 +104,16 @@
             @if (IsEditingLastName)
             {
                 <div class="edit-container"
-                     style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
                     <input type="text"
-                           @bind="TempLastName"
-                           @ref="lastNameInput"
-                           placeholder="Введите новую фамилию"
-                           style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
+                    @bind="TempLastName"
+                    @ref="lastNameInput"
+                    placeholder="Введите новую фамилию"
+                    style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
 
                     <button @onclick="SaveLastName"
-                            style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
-                            title="Сохранить">
+                    style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
+                    title="Сохранить">
                         &#10003;
                     </button>
                 </div>
@@ -88,8 +123,8 @@
     <div class="menu">
         <div class="menu-item">
             <button id="favourites-link1"
-                    @onclick="ToggleEmailEdit"
-                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+            @onclick="ToggleEmailEdit"
+            style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
                 <span class="menu-icon" style="margin-right: 8px;">✉️</span> <!-- Иконка почты -->
                 <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingEmail ? "Отмена" : "Изменить почту")</span>
                 <span class="menu-arrow">›</span>
@@ -98,19 +133,19 @@
             @if (IsEditingEmail)
             {
                 <div class="edit-container"
-                     style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+                style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <input type="email"
-                               @bind="TempEmail"
-                               @oninput="ValidateEmail"
-                               @ref="EmailInput"
-                               placeholder="user@example.com"
-                               style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid @(IsEmailValid ? "#666" : "red"); border-radius: 4px;" />
+                        @bind="TempEmail"
+                        @oninput="ValidateEmail"
+                        @ref="EmailInput"
+                        placeholder="user@example.com"
+                        style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid @(IsEmailValid ? "#666" : "red"); border-radius: 4px;" />
 
                         <button @onclick="SaveEmail"
-                                disabled="@(!IsEmailValid)"
-                                style="padding: 6px 12px; font-size: 1rem; cursor: @(IsEmailValid ? "pointer" : "not-allowed"); background-color: @(IsEmailValid ? "#4CAF50" : "#cccccc"); color: white; border: none; border-radius: 4px;"
-                                title="@(IsEmailValid ? "Сохранить" : "Введите корректный email")">
+                        disabled="@(!IsEmailValid)"
+                        style="padding: 6px 12px; font-size: 1rem; cursor: @(IsEmailValid ? "pointer" : "not-allowed"); background-color: @(IsEmailValid ? "#4CAF50" : "#cccccc"); color: white; border: none; border-radius: 4px;"
+                        title="@(IsEmailValid ? "Сохранить" : "Введите корректный email")">
                             &#10003;
                         </button>
                     </div>
@@ -126,10 +161,10 @@
         </div>
     </div>
 
-   
-        <div class="menu-divider"></div>
 
-        <!-- Загрузка фото -->
+    <div class="menu-divider"></div>
+
+    <!-- Загрузка фото -->
     <a href="#" class="menu-item">
         <span class="menu-icon">⏳</span> <!-- Или 🕒 -->
         <span class="menu-text">Время активности</span>
@@ -160,18 +195,18 @@
     <div class="menu-divider"></div>
 
     <!-- Язык интерфейса -->
-    
-        <!-- Language Selector -->
+
+    <!-- Language Selector -->
     <a href="#" class="menu-item">
-                  
-                <span class="menu-icon">🌐</span>
-            <span class="menu-text">Язык интерфейса</span>
-                   
-                
-                <span class="menu-arrow">›</span>
-            </a>
-       
-       
+
+        <span class="menu-icon">🌐</span>
+        <span class="menu-text">Язык интерфейса</span>
+
+
+        <span class="menu-arrow">›</span>
+    </a>
+
+
     <!-- Настройки безопасности -->
     <a href="#" class="menu-item">
         <span class="menu-icon">🔒</span> <!-- Или 🛡️ -->
@@ -187,10 +222,9 @@
         <span class="menu-text">Сообщения</span>
         <span class="menu-arrow">›</span>
     </a>
-    </div>
+</div>
 
 
-   
 
 
 
@@ -220,12 +254,238 @@
 
 
 
-        private bool IsEnglish { get; set; } = false;
+    private string AvatarUrl { get; set; }
+    private bool hasAvatar = false;
+    private string cacheBuster = Guid.NewGuid().ToString();
+    private string uploadError;
+
+
+
+    private string avatarError;
+    private bool isAvatarLoading = false;
+    [Inject] NavigationManager Navigation { get; set; }
     protected override async Task OnInitializedAsync()
     {
-        await LoadProfile();
+        try
+        {
+            Navigation.LocationChanged += HandleLocationChanged;
+            await LoadProfile();
+            await LoadAvatar();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Initialization error: {ex}");
+            // Можно добавить отображение ошибки пользователю
+           
+        }
+    }
+    private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        // Перезагрузить аватар при возврате на страницу
+        if (e.Location.Contains("your-page"))
+        {
+            InvokeAsync(StateHasChanged);
+        }
+    }
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= HandleLocationChanged;
+    }
+    private async Task LoadAvatar()
+    {
+        Console.WriteLine("Starting avatar load...");
+        isAvatarLoading = true;
+
+        try
+        {
+
+            var (url, error) = await ProfileService.GetUserAvatarUrlAsync();
+            Console.WriteLine($"Avatar response - URL: {url}, Error: {error}");
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                AvatarUrl = $"{url}&v={DateTime.Now.Ticks}";
+                hasAvatar = true;
+                Console.WriteLine($"Avatar URL set: {AvatarUrl}");
+            }
+            else
+            {
+                Console.WriteLine("No avatar URL received, using default");
+                AvatarUrl = "/images/image 4.png";
+                hasAvatar = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Avatar load failed: {ex}");
+            AvatarUrl = "/images/image 4.png";
+            hasAvatar = false;
+        }
+        finally
+        {
+            isAvatarLoading = false;
+            Console.WriteLine("Avatar load completed");
+            StateHasChanged();
+        }
     }
 
+    private async Task<bool> CheckImageAvailable(string url)
+    {
+        try
+        {
+            using var client = new HttpClient();
+            var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            return response.IsSuccessStatusCode;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+    private async Task RemoveInvalidAvatar()
+    {
+        try
+        {
+            await ProfileService.UpdateAvatarUrlAsync(null);
+            AvatarUrl = null;
+        }
+        catch
+        {
+            // Игнорируем ошибки при удалении
+        }
+    }
+    
+    private async Task VerifyUserState()
+    {
+        try
+        {
+            var user = SupabaseClient.Auth.CurrentUser;
+            if (user == null)
+            {
+                NavigationManager.NavigateTo("/login");
+                return;
+            }
+        }
+        catch
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+    }
+
+    // Вызывайте этот метод в начале HandleFileUpload
+    private bool _isUploading = false;
+
+    private async Task HandleFileUpload(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            if (e.FileCount == 0)
+            {
+                Console.WriteLine("No files selected");
+                return;
+            }
+
+            var file = e.File;
+            if (file == null)
+            {
+                Console.WriteLine("File is null");
+                return;
+            }
+
+            // Проверка расширения файла
+            var validExtensions = new[] { ".jpg", ".jpeg", ".png" };
+            var fileExt = Path.GetExtension(file.Name).ToLower();
+            if (!validExtensions.Contains(fileExt))
+            {
+                avatarError = "Допустимы только JPG, JPEG и PNG";
+                await InvokeAsync(StateHasChanged);
+                return;
+            }
+
+            isAvatarLoading = true;
+            avatarError = null;
+            await InvokeAsync(StateHasChanged);
+
+            try
+            {
+                using var stream = file.OpenReadStream(maxAllowedSize: 5 * 1024 * 1024); // 5MB
+                var result = await ProfileService.UploadAvatar(stream, file.Name);
+
+                if (!string.IsNullOrEmpty(result.Error))
+                {
+                    avatarError = result.Error;
+                    await InvokeAsync(StateHasChanged);
+                    return;
+                }
+
+                cacheBuster = Guid.NewGuid().ToString();
+                await LoadAvatar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in HandleFileUpload: {ex}");
+                avatarError = "Ошибка при загрузке файла";
+                await InvokeAsync(StateHasChanged);
+            }
+            finally
+            {
+                isAvatarLoading = false;
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Critical error in HandleFileUpload: {ex}");
+            avatarError = "Критическая ошибка";
+            isAvatarLoading = false;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+    private async Task VerifyAvatar()
+    {
+        try
+        {
+            var user = SupabaseClient.Auth.CurrentUser;
+            if (user == null) return;
+
+            var response = await SupabaseClient
+                .From<profiles>()
+                .Select("avatar_url")
+                .Where(x => x.UserId == user.Id)
+                .Single();
+
+            if (!string.IsNullOrEmpty(response.AvatarUrl))
+            {
+                // Получаем список файлов в папке пользователя
+                var files = await SupabaseClient.Storage
+                    .From("avatars")
+                    .List(user.Id);
+
+                // Проверяем существует ли файл
+                var fileName = Path.GetFileName(response.AvatarUrl);
+                var exists = files.Any(f => f.Name == fileName);
+
+                if (!exists)
+                {
+                    await RemoveInvalidAvatar();
+                    hasAvatar = false;
+                    AvatarUrl = "/images/image 4.png";
+                }
+            }
+        }
+        catch
+        {
+            // Игнорируем ошибки проверки
+        }
+    }
+    private string GetFileExtension(string fileName)
+    {
+        return Path.GetExtension(fileName).ToLower();
+    }
+
+    
+
+    
     private async Task LoadProfile()
     {
         var profile = await ProfileService.GetProfileAsync();

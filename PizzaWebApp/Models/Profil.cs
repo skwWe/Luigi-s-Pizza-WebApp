@@ -19,6 +19,10 @@ namespace PizzaWebApp.Models
 
         [Column("email")]
         public string Email { get; set; }
-
+        [Column("avatar_url")]
+        public string AvatarUrl { get; set; }
     }
+
+    // Models/Profile.cs
+    
 }
