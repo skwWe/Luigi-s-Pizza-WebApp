@@ -55,18 +55,21 @@
 
 .sidebar {
     position: fixed;
-    top: 109px;
-    bottom: 115px;
+    top: 110px; /* Начальная позиция сверху */
+    bottom: 50px; /* Убираем фиксированную высоту снизу */
     right: -500px;
     width: 500px;
     background-color: #fff;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
     transition: right 0.3s ease;
     z-index: 1000;
     font-family: Arial, sans-serif;
     padding: 0 20px;
     box-sizing: border-box;
+    resize: vertical; /* Позволяет изменять высоту мышкой */
+    min-height: 200px; /* Минимальная высота */
+    max-height: calc(100vh - 120px - 115px); /* Максимальная высота (чтобы не выходил за пределы экрана) */
 }
 
     .sidebar.open {
@@ -74,36 +77,113 @@
     }
 
 .profile-info {
-    padding: 30px 0 20px;
-    border-bottom: 1px solid #ccc;
+    padding: 40px 0 30px;
+    border-bottom: 1px solid #eee;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 20px;
 }
 
-    .profile-info img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        margin-bottom: 15px;
-        object-fit: cover;
+.avatar-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-avatar {
+    width: 160px !important;
+    height: 160px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.avatar-clickable {
+    display: block;
+    cursor: pointer;
+}
+
+.profile-avatar:hover {
+    filter: brightness(0.95);
+    transform: scale(1.02);
+}
+
+.avatar-upload-label {
+    cursor: pointer;
+    background: #f0f0f0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.2s;
+    width: fit-content;
+}
+
+    .avatar-upload-label:hover {
+        background: #e0e0e0;
     }
 
-    .profile-info h4 {
-        margin: 0;
-        font-size: 24px;
-        font-weight: 600;
-        color: #222;
+.avatar-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 3px solid #3498db;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 8px;
+}
+
+.avatar-error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 10px;
+    max-width: 200px;
+}
+
+.profile-text h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+}
+
+.profile-text h6 {
+    margin: 8px 0 0;
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+}
+
+@@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
 
-    .profile-info p {
-        margin: 6px 0 0;
-        font-size: 14px;
-        color: #666;
+    100% {
+        transform: rotate(360deg);
     }
-
-
+}
 
 .menu {
     padding: 10px 0;
@@ -254,65 +334,3 @@
 
 
 
-
-/* Добавляем новые стили для аватарки */
-.avatar-container {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.profile-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s;
-}
-
-.avatar-upload-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.avatar-container:hover .avatar-upload-label {
-    opacity: 1;
-}
-
-.avatar-upload-text {
-    font-size: 14px;
-    text-align: center;
-}
-
-.upload-error {
-    color: #ff4444;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.uploading-text {
-    color: #666;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.avatar-loading {
-    opacity: 0.5;
-    filter: blur(2px);
-    transition: opacity 0.3s ease;
-}

@@ -1,55 +1,55 @@
 {
   "Files": [
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PizzaWebApp.styles.css",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PizzaWebApp.styles.css",
       "PackagePath": "staticwebassets\\PizzaWebApp.styles.css"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\Profil.css",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\css\\Profil.css",
       "PackagePath": "staticwebassets\\css\\Profil.css"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\app.css",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\favicon.png",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\icon-192.png",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\e76f272fb8c2fb73d5bb9dfe35cca14d.png",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\images\\e76f272fb8c2fb73d5bb9dfe35cca14d.png",
       "PackagePath": "staticwebassets\\images\\e76f272fb8c2fb73d5bb9dfe35cca14d.png"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\image 4.png",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\images\\image 4.png",
       "PackagePath": "staticwebassets\\images\\image 4.png"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\luigi-logo.png",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\images\\luigi-logo.png",
       "PackagePath": "staticwebassets\\images\\luigi-logo.png"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\index.html",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\проект3\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\sample-data\\weather.json",
+      "Id": "D:\\проверка\\priverka\\PizzaWebApp\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {

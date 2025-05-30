@@ -1,5 +1,4 @@
-﻿// Services/ProfileService.cs
-using Microsoft.JSInterop;
+﻿using Microsoft.JSInterop;
 using PizzaWebApp.Models;
 using Supabase;
 using Supabase.Postgrest.Attributes;
@@ -17,11 +16,11 @@ namespace YourNamespace.Services
         public ProfileService(Supabase.Client supabase)
         {
             _supabase = supabase;
-            
+
         }
 
         // Модель профиля
-    
+
 
         // Метод получения профиля
         public async Task<(string FirstName, string LastName, string Email)?> GetProfileAsync()
@@ -88,70 +87,65 @@ namespace YourNamespace.Services
             try
             {
                 var user = _supabase.Auth.CurrentUser;
-                if (user == null)
-                {
-                    Console.WriteLine("User not authenticated");
-                    return (null, "Пользователь не авторизован");
-                }
+                if (user == null) return (null, "Пользователь не авторизован");
 
-                // Проверка размера файла
-                if (fileStream.Length > 5 * 1024 * 1024)
-                {
-                    return (null, "Размер файла превышает 5MB");
-                }
+                // Получаем текущий аватар (если есть)
+                var currentProfile = await GetProfileRecord(user.Id);
+                string oldAvatarPath = currentProfile?.AvatarUrl;
 
-                // Чтение файла в память
+                // Конвертация в byte[] с контролем памяти
                 byte[] fileBytes;
-                using (var memoryStream = new MemoryStream())
+                using (var ms = new MemoryStream())
                 {
-                    await fileStream.CopyToAsync(memoryStream);
-                    fileBytes = memoryStream.ToArray();
+                    await fileStream.CopyToAsync(ms);
+                    fileBytes = ms.ToArray();
                 }
+
+                // Проверка размера
+                if (fileBytes.Length > 5 * 1024 * 1024)
+                    return (null, "Файл слишком большой (макс. 5MB)");
 
                 var fileExt = Path.GetExtension(fileName).ToLower();
-                var uniqueFileName = $"{user.Id}/{Guid.NewGuid()}{fileExt}";
+                var filePath = $"{user.Id}/avatar{fileExt}"; // Фиксированное имя файла
 
-                // Загрузка в Supabase Storage
-                var storageResult = await _supabase.Storage
-                    .From(AvatarBucketName)
-                    .Upload(fileBytes, uniqueFileName, new Supabase.Storage.FileOptions
-                    {
-                        ContentType = GetContentType(fileExt),
-                        Upsert = true
-                    });
+                // Загрузка с обработкой CORS
+                var storage = _supabase.Storage.From("avatars");
+                await storage.Upload(fileBytes, filePath, new Supabase.Storage.FileOptions
+                {
+                    ContentType = GetContentType(fileExt),
+                    Upsert = true // Перезаписываем файл, если он уже существует
+                });
 
-               
-
-                // Обновление записи в базе данных
-                var updateResult = await _supabase.From<profiles>()
+                // Обновление БД
+                await _supabase.From<profiles>()
                     .Where(x => x.UserId == user.Id)
-                    .Set(x => x.AvatarUrl, uniqueFileName)
+                    .Set(x => x.AvatarUrl, filePath)
                     .Update();
 
-                if (updateResult.ResponseMessage?.IsSuccessStatusCode != true)
+                // Удаляем старый аватар, если он был и если это не тот же файл
+                if (!string.IsNullOrEmpty(oldAvatarPath) && oldAvatarPath != filePath)
                 {
-                    return (null, "Ошибка обновления профиля");
+                    try
+                    {
+                        await storage.Remove(new List<string> { oldAvatarPath });
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Ошибка удаления старого аватара: {ex}");
+                        // Не прерываем выполнение, так как новый аватар уже загружен
+                    }
                 }
 
-                var publicUrl = _supabase.Storage
-                    .From(AvatarBucketName)
-                    .GetPublicUrl(uniqueFileName);
-
-                return (publicUrl, null);
+                // Получаем URL с токеном доступа
+                var signedUrl = await storage.CreateSignedUrl(filePath, 3600);
+                return (signedUrl, null);
             }
-            catch (Supabase.Postgrest.Exceptions.PostgrestException pgEx)
-            {
-                Console.WriteLine($"Postgrest error: {pgEx.Message}");
-                return (null, "Ошибка базы данных");
-            }
-            
             catch (Exception ex)
             {
-                Console.WriteLine($"General error: {ex}");
-                return (null, "Неизвестная ошибка");
+                Console.WriteLine($"Ошибка загрузки: {ex}");
+                return (null, "Ошибка сервера");
             }
         }
-
         private async Task<profiles?> GetProfileRecord(string userId)
         {
             return await _supabase
@@ -269,6 +263,6 @@ namespace YourNamespace.Services
 
 
     }
-   
+
 
 }
