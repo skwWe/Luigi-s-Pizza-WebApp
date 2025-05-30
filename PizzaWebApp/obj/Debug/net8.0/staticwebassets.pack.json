@@ -9,10 +9,6 @@
       "PackagePath": "staticwebassets\\PizzaWebApp.styles.css"
     },
     {
-      "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\Profil.css",
-      "PackagePath": "staticwebassets\\css\\Profil.css"
-    },
-    {
       "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
@@ -25,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
       "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
@@ -33,8 +33,24 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\logo-circle.png",
+      "PackagePath": "staticwebassets\\images\\logo-circle.png"
+    },
+    {
+      "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
       "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\luigi-logo.png",
       "PackagePath": "staticwebassets\\images\\luigi-logo.png"
+    },
+    {
+      "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\pizza.png",
+      "PackagePath": "staticwebassets\\images\\pizza.png"
+    },
+    {
+      "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\pizza.svg",
+      "PackagePath": "staticwebassets\\images\\pizza.svg"
     },
     {
       "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\index.html",

@@ -28,8 +28,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/source/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/Profil.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsLnJhem9y
+[D:/source/Luigi-s-Pizza-WebApp/PizzaWebApp/Layout/OrderCard.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE9yZGVyQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/MainDone.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbkRvbmUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/MainNew.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbk5ldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/Luigi-s-Pizza-WebApp/PizzaWebApp/Pages/MainNow.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbk5vdy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/source/Luigi-s-Pizza-WebApp/PizzaWebApp/_Imports.razor]

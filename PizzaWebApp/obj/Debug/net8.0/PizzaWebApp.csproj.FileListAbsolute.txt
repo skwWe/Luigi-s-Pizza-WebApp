@@ -2989,7 +2989,6 @@ D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\PizzaWebApp.dll
 D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\refint\PizzaWebApp.dll
 D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\PizzaWebApp.pdb
 D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\ref\PizzaWebApp.dll
-D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\scopedcss\Layout\Profil.razor.rz.scp.css
-D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-lwr8z8fspv.gz
-D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-6vgllstaix.gz
-D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-yrjgi0v82x.gz
+D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-6k957a3pee.gz
+D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-cl0neaxcad.gz
+D:\source\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-l4gxlgd26r.gz

@@ -1,6 +1,7 @@
 ﻿@page "/login"
 @inject NavigationManager NavigationManager
 @inject Supabase.Client SupabaseClient
+
 @using Supabase.Gotrue
 @using Models
 
@@ -47,7 +48,7 @@
             if (session.User != null)
             {
                 // Перенаправление на главную или нужную страницу
-                NavigationManager.NavigateTo("/Profil");
+                NavigationManager.NavigateTo("/main-now");
             }
             else
             {
