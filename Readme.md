@@ -83,7 +83,8 @@ https://www.figma.com/design/clOBEZdpCD3Eal6KN6rNgn/Untitled?node-id=0-1&p=f&t=g
 
 
 <h2>30.05</h2>
-
+Головачёва: 
+- реализован функционал всех главных страниц
 
 Кукина: 
 - считывание аватки с supabase
