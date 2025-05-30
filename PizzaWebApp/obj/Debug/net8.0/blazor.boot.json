@@ -1,15 +1,15 @@
 {
   "mainAssemblyName": "PizzaWebApp",
   "resources": {
-    "hash": "sha256-uDraBce5ABHrej9UTPeFmJK+/sZ0/R3sCVeJVfBtVbg=",
+    "hash": "sha256-BGOkbR2+HkIGZrB5faN2C1su8WXbam8aqOgXAXaUbTQ=",
     "jsModuleNative": {
-      "dotnet.native.js": "sha256-RiGT44TFZmHOY+Oqvb8o8r+BJVWex6+dPxFxrOiWvFY="
+      "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.js": "sha256-t76BRXwt7ie+t1popBz8/uUmIQCWeGU9XALjF0psLNw="
+      "dotnet.runtime.js": "sha256-nam8JTYKjhMKOTg6+FlihYP6JpWPGe3jjM9fiUFWzhY="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-UiaFtxLHzlxisuBqZWMdl4IYCuHWyjZuv8yURy9ZnqQ="
+      "dotnet.native.wasm": "sha256-1NJsNYy4gznvjVwzcG5w3Cl50enK1KB/7cKBMY+6jz4="
     },
     "icu": {
       "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -300,10 +300,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "PizzaWebApp.wasm": "sha256-DDMdr70jdOrsmf8HG3Bw8//hg38oKMH0ZQIaIkVydPc="
+      "PizzaWebApp.wasm": "sha256-o69AUURUayVdfOmuQSatk3qiHAkLWJOYON50UBUWmiQ="
     },
     "pdb": {
-      "PizzaWebApp.pdb": "sha256-qVY+Nrctcl9QCB2IWLYEMAgau7RM12P4Br7Ry6AoMIM="
+      "PizzaWebApp.pdb": "sha256-bEuTdqK9Lz/p93mZf4Q0OBlvCGOuHyqTYVYefMc6Bow="
     }
   },
   "cacheBootResources": true,

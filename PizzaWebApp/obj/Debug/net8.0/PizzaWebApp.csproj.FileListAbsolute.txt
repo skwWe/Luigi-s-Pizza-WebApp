@@ -1492,9 +1492,6 @@ C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\refi
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\PizzaWebApp.pdb
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\ref\PizzaWebApp.dll
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\scopedcss\Pages\LoginPage.razor.rz.scp.css
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-8mhgzt77v4.gz
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-4c5ell4a93.gz
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-lfsou0viis.gz
 D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js
 D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\bin\Debug\net8.0\wwwroot\_framework\dotnet.js
 D:\проект2\Luigi-s-Pizza-WebApp\PizzaWebApp\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.map
@@ -5986,3 +5983,6 @@ D:\проверка\priverka\PizzaWebApp\obj\Debug\net8.0\ref\PizzaWebApp.dll
 D:\проверка\priverka\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-40zfus22u1.gz
 D:\проверка\priverka\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-x2cm00nkz9.gz
 D:\проверка\priverka\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-up29lau6ep.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-z8uuzqh0xp.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-8zaksh4ecn.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-zl1dvm985j.gz
