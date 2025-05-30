@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "PizzaWebApp",
   "resources": {
-    "hash": "sha256-uDraBce5ABHrej9UTPeFmJK+/sZ0/R3sCVeJVfBtVbg=",
+    "hash": "sha256-rm4AQwq12olwe98Uqz/QllhRMmtl/j94dxegB518cUA=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-RiGT44TFZmHOY+Oqvb8o8r+BJVWex6+dPxFxrOiWvFY="
     },
@@ -300,10 +300,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "PizzaWebApp.wasm": "sha256-DDMdr70jdOrsmf8HG3Bw8//hg38oKMH0ZQIaIkVydPc="
+      "PizzaWebApp.wasm": "sha256-80MrAl5L5kQviaiDDCsRYpyQiugjdlnSrKcnnovx27U="
     },
     "pdb": {
-      "PizzaWebApp.pdb": "sha256-qVY+Nrctcl9QCB2IWLYEMAgau7RM12P4Br7Ry6AoMIM="
+      "PizzaWebApp.pdb": "sha256-St0TLFDay9VoHSEOOrZZG0AWJZb1r66c1KJx9PTUwzs="
     }
   },
   "cacheBootResources": true,

@@ -1,0 +1,91 @@
+﻿@page "/menu"
+@using PizzaWebApp.Models
+@using PizzaWebApp.Services
+@inject MenuService MenuService
+
+<head>
+    <link rel="stylesheet" href="css/Profil.css" />
+</head>
+
+<div class="main-content">
+    <h1 class="page-title">Наше меню</h1>
+
+    @if (burgers == null)
+    {
+        <div class="loading">Loading ...</div>
+    }
+    else if (!burgers.Any())
+    {
+        <div class="no-items">No burgers available at the moment.</div>
+    }
+    else
+    {
+        <div class="burgers-grid">
+            @foreach (var burger in burgers)
+            {
+                <div class="burger-card">
+                    <div class="burger-image-container">
+                        @if (!string.IsNullOrEmpty(burger.ImageUrl))
+                        {
+                            <img src="@burger.ImageUrl"
+                                 alt="@burger.Name"
+                                 class="burger-image"
+                                 @onerror="() => HandleImageError(burger)" />
+                        }
+                        else
+                        {
+                            <div class="no-image">No Image</div>
+                        }
+                    </div>
+
+                    <div class="burger-content">
+                        <h3 class="burger-title">@burger.Name</h3>
+                        <div class="burger-description">
+                            @foreach (var line in burger.Description.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+                            {
+                                <p>@line</p>
+                            }
+                        </div>
+                        <div class="burger-footer">
+                            <span class="burger-price">@burger.Price.ToString("0") ₽</span>
+                            <div class="quantity-display">0</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<MenuItem> burgers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBurgers();
+    }
+
+    private async Task LoadBurgers()
+    {
+        burgers = await MenuService.GetBurgersAsync();
+
+        foreach (var burger in burgers)
+        {
+            if (!string.IsNullOrEmpty(burger.ImageUrl))
+            {
+                burger.ImageUrl = await MenuService.GetImageUrl(burger.ImageUrl);
+            }
+        }
+    }
+
+    private void HandleImageError(MenuItem burger)
+    {
+        burger.ImageUrl = null;
+        StateHasChanged();
+    }
+
+    private void AddToCart(MenuItem burger)
+    {
+        Console.WriteLine($"Added to cart: {burger.Name}");
+    }
+}

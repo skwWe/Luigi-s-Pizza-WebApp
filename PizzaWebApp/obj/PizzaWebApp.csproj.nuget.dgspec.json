@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\проверка\\priverka\\PizzaWebApp\\PizzaWebApp.csproj": {}
+    "D:\\проверка7\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj": {}
   },
   "projects": {
-    "D:\\проверка\\priverka\\PizzaWebApp\\PizzaWebApp.csproj": {
+    "D:\\проверка7\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\проверка\\priverka\\PizzaWebApp\\PizzaWebApp.csproj",
+        "projectUniqueName": "D:\\проверка7\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
         "projectName": "PizzaWebApp",
-        "projectPath": "D:\\проверка\\priverka\\PizzaWebApp\\PizzaWebApp.csproj",
+        "projectPath": "D:\\проверка7\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
         "packagesPath": "C:\\Users\\Nastya\\.nuget\\packages\\",
-        "outputPath": "D:\\проверка\\priverka\\PizzaWebApp\\obj\\",
+        "outputPath": "D:\\проверка7\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
