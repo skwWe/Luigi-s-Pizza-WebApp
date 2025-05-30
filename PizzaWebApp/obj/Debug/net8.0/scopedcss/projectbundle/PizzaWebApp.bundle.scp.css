@@ -71,10 +71,7 @@ main[b-1ihmbsgivg] {
         width: 0;
     }
 
-    .top-row[b-1ihmbsgivg], article[b-1ihmbsgivg] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
+
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-msdzk85bwa] {
@@ -297,7 +294,7 @@ main[b-1ihmbsgivg] {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px;
+    padding: 60px;
 }
 
 .logo[b-88vdfvydvm] {
@@ -358,7 +355,7 @@ main[b-1ihmbsgivg] {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 50px
+    margin-top: 20px
 }
 
     .btn-register:hover[b-88vdfvydvm] {

@@ -1,7 +1,11 @@
 {
   "mainAssemblyName": "PizzaWebApp",
   "resources": {
+<<<<<<< HEAD
     "hash": "sha256-BGOkbR2+HkIGZrB5faN2C1su8WXbam8aqOgXAXaUbTQ=",
+=======
+    "hash": "sha256-pbfbGHzEEZHL+WTR1ehBqPHN5IfCwLPpkwnKUr0C6sg=",
+>>>>>>> 30e974e (Добавлены юнит тесты, поправлен интерфейс авторизации)
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -19,6 +23,7 @@
     "coreAssembly": {},
     "assembly": {
       "Azure.Core.wasm": "sha256-59JxV5wTM2SQr+SUghmDjF366cxcEFzb01pIZFbSQvE=",
+      "Castle.Core.wasm": "sha256-t3lFppQa0mtcJhnAgH0CjaUgx5yVh9lHRfx3jZagZmQ=",
       "Microsoft.AspNetCore.Antiforgery.wasm": "sha256-OmiSwEw6p2PxHao+FNLt+OxnIhBsNxGjvJJrG/Xwbek=",
       "Microsoft.AspNetCore.Authentication.Abstractions.wasm": "sha256-u9iMOIltdEH1f+auTSi7mcb4SBt2memdjfBRiDl2cNE=",
       "Microsoft.AspNetCore.Authentication.Core.wasm": "sha256-RvrgkuvCzUhIR14zDxsUqVpYzujZOdJHMJ36UJgBMIg=",
@@ -114,6 +119,7 @@
       "Microsoft.Kiota.Serialization.Text.wasm": "sha256-QP5HKCzcHL3f+xBB0hl3zKpVUK7pgT56T2dQ/Cd/Nyg=",
       "Microsoft.Net.Http.Headers.wasm": "sha256-jfXK+cfJd/PteHB+5Bay/NDY9b9VLvVw6G/Bm262Lpo=",
       "MimeMapping.wasm": "sha256-CMXcRIg84k7AstbhcD8rbnPKy2wa/gmsBD8gBgZP1c8=",
+      "Moq.wasm": "sha256-rLCR78SajDaW5BpF1tdjVcTtDt7hDFwqmve7qSj6pWk=",
       "Newtonsoft.Json.wasm": "sha256-GlXMWKvDs45M2pACoR3Y4Qh8mcrOZGljqmvJY+6JZ5s=",
       "Newtonsoft.Json.Bson.wasm": "sha256-VxfTY/Ckiz5BNvQbcB31OYXhY4HGHJtODt5rRbjDIK0=",
       "Std.UriTemplate.wasm": "sha256-8bbR8zQ9B9Hj2q+4vSWognkOCQ2n6zHGCX2sg1yCZHY=",
@@ -125,6 +131,7 @@
       "Supabase.Realtime.wasm": "sha256-uVv6E6kYwaHrayuVaV9LCt6rkkyLzb8yruwLcdoZP3o=",
       "Supabase.Storage.wasm": "sha256-y76yu8B80Dx0eKBpLW7a6YC2em2J/O6ww8+m80LzhXE=",
       "System.ClientModel.wasm": "sha256-/IU51y3QZZ+GnpJjXSvWavMqCOwGEGZNEzwMCH+XVlk=",
+      "System.Diagnostics.EventLog.wasm": "sha256-F2Id9a+/OB+z663S4PbQr6in1K4m9vFHUDftm8H5hmk=",
       "System.IdentityModel.Tokens.Jwt.wasm": "sha256-Ssa5g0iGWMJywDdPZDLvWyKXzi9BemUCppelfgynRlY=",
       "System.IO.Pipelines.wasm": "sha256-JqVBy6SV+3qk+IK3VJiyIDt9CsVk6b1/ytTXmrI4mTM=",
       "System.Memory.Data.wasm": "sha256-gsCw6FkbeR7m0HhWOWUNXcvT6uRWiShUCOsbTDyc1g8=",
@@ -300,10 +307,17 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
+<<<<<<< HEAD
       "PizzaWebApp.wasm": "sha256-o69AUURUayVdfOmuQSatk3qiHAkLWJOYON50UBUWmiQ="
     },
     "pdb": {
       "PizzaWebApp.pdb": "sha256-bEuTdqK9Lz/p93mZf4Q0OBlvCGOuHyqTYVYefMc6Bow="
+=======
+      "PizzaWebApp.wasm": "sha256-jcL7HcRYEFOqz8QEWr7uP1sAxEEjuGMJOd5/IsM5gyg="
+    },
+    "pdb": {
+      "PizzaWebApp.pdb": "sha256-gLeRWSe00gQYbyAfiQAzjRWkygEyIcxdfrPXPAd7h8c="
+>>>>>>> 30e974e (Добавлены юнит тесты, поправлен интерфейс авторизации)
     }
   },
   "cacheBootResources": true,

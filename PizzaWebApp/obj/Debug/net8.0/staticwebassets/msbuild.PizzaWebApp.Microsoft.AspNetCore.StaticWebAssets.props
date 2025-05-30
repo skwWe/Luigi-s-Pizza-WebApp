@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>993li8ht13</Fingerprint>
-      <Integrity>QzqEJTqFCeaxbbTGI8+dmTe+fjsD/A/JK+9qlZvaJ48=</Integrity>
+      <Fingerprint>yqsbzmdcyq</Fingerprint>
+      <Integrity>SlFc822YBgtJGy6PdHrCvF/Ee9ErqQyxomMpu0Qr6G0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
@@ -192,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>kxh9c6coj9</Fingerprint>
-      <Integrity>COeroNlhdhgs/PYVGWTBeDNOraBUlBQe54ps97ddstc=</Integrity>
+      <Fingerprint>u5vgat3faz</Fingerprint>
+      <Integrity>PjB21IUs30+Z4Zwyoi58ezOjrz3QDZHg16J86MVmyGw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\PizzaWebApp.styles.css'))</OriginalItemSpec>

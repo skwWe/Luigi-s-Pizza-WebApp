@@ -17,7 +17,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 // Настройка Supabase
-builder.Services.AddSingleton<Supabase.Client>(sp =>
+builder.Services.AddSingleton<Client>(sp =>
 {
     var supabaseUrl = "https://qfpyxrvpedzwdtmifthl.supabase.co";
     var supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmcHl4cnZwZWR6d2R0bWlmdGhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczNzczNTgsImV4cCI6MjA2Mjk1MzM1OH0.YQiPwj5aPWLXFhDMKf5polnpL2dCd5MP7HxjaDDYE5Q";

@@ -3,10 +3,13 @@
   "WorkspaceRootPath": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{F78464B5-0D8D-4D13-AF58-627A6F24A47B}|PizzaWebApp\\PizzaWebApp.csproj|c:\\users\\dom\\source\\repos\\luigi-s-pizza-webapp\\pizzawebapp\\services\\prifilservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F78464B5-0D8D-4D13-AF58-627A6F24A47B}|PizzaWebApp\\PizzaWebApp.csproj|solutionrelative:pizzawebapp\\services\\prifilservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+>>>>>>> 30e974e (Добавлены юнит тесты, поправлен интерфейс авторизации)
       "AbsoluteMoniker": "D:0:0:{F78464B5-0D8D-4D13-AF58-627A6F24A47B}|PizzaWebApp\\PizzaWebApp.csproj|c:\\users\\dom\\source\\repos\\luigi-s-pizza-webapp\\pizzawebapp\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F78464B5-0D8D-4D13-AF58-627A6F24A47B}|PizzaWebApp\\PizzaWebApp.csproj|solutionrelative:pizzawebapp\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,6 +46,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "PrifilService.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\PrifilService.cs",
               "RelativeDocumentMoniker": "PizzaWebApp\\Services\\PrifilService.cs",
@@ -51,10 +55,34 @@
               "ViewState": "AgIAAGsAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-30T18:01:37.685Z",
+=======
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "PizzaWebApp\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs*",
+              "RelativeToolTip": "PizzaWebApp\\Services\\AuthService.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T17:50:54.441Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "PizzaWebApp\\Program.cs",
+              "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Program.cs*",
+              "RelativeToolTip": "PizzaWebApp\\Program.cs*",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T17:50:25.561Z",
+>>>>>>> 30e974e (Добавлены юнит тесты, поправлен интерфейс авторизации)
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs",
@@ -64,10 +92,22 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-30T17:50:54.441Z",
+=======
+              "DocumentIndex": 2,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\WebsiteTests\\packages.config",
+              "RelativeDocumentMoniker": "WebsiteTests\\packages.config",
+              "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\WebsiteTests\\packages.config",
+              "RelativeToolTip": "WebsiteTests\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-30T15:57:50.979Z",
+>>>>>>> 30e974e (Добавлены юнит тесты, поправлен интерфейс авторизации)
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Program.cs",
@@ -93,6 +133,9 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
+=======
+              "DocumentIndex": 4,
+>>>>>>> 30e974e (Добавлены юнит тесты, поправлен интерфейс авторизации)
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\WebsiteTests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "WebsiteTests\\UnitTest1.cs",
@@ -104,7 +147,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 4,
+=======
+              "DocumentIndex": 3,
+>>>>>>> 30e974e (Добавлены юнит тесты, поправлен интерфейс авторизации)
               "Title": "RegisterPage.razor.css",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Pages\\RegisterPage.razor.css",
               "RelativeDocumentMoniker": "PizzaWebApp\\Pages\\RegisterPage.razor.css",

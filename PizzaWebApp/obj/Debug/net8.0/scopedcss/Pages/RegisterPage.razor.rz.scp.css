@@ -30,7 +30,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px;
+    padding: 60px;
 }
 
 .logo[b-88vdfvydvm] {
@@ -91,7 +91,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 50px
+    margin-top: 20px
 }
 
     .btn-register:hover[b-88vdfvydvm] {
