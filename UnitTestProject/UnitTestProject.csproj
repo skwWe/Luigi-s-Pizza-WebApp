@@ -6,9 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestSupabaseAdapter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.4" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.1.2" />
     <PackageReference Include="MSTest.TestFramework" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaWebApp\PizzaWebApp.csproj" />
   </ItemGroup>
 
 </Project>

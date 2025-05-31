@@ -1,2 +1,0 @@
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\publish\emcc-props.json
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\publish\web.config

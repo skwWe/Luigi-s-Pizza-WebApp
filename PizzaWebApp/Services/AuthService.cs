@@ -1,31 +1,35 @@
-﻿using Supabase;
-using Supabase.Gotrue;
-using Supabase.Postgrest.Attributes;
-using Supabase.Postgrest.Models;
-using System.Linq.Expressions;
+﻿using SupabaseSession = Supabase.Gotrue.Session;
 
 namespace AuthServiceTool
 {
     public class AuthService
     {
-        private readonly Supabase.Client _client;
+        private readonly ISupabaseAuthWrapper _authWrapper;
 
-        public AuthService(Supabase.Client client)
+        public AuthService(Supabase.Client client) : this(new SupabaseAuthWrapper(client))
         {
-            _client = client;
         }
 
-        public async Task<Session?> RegisterAsync(string email, string password)
+        public AuthService(ISupabaseAuthWrapper authWrapper)
         {
+            _authWrapper = authWrapper;
+        }
+
+        public async Task<SupabaseSession?> RegisterAsync(string email, string password)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentNullException(nameof(email));
+
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentNullException(nameof(password));
             try
             {
-                var session = await _client.Auth.SignUp(email, password);
-                return session;
+                return await _authWrapper.SignUp(email, password);
             }
-            catch (Exception ex)
+            catch
             {
-                var session = await _client.Auth.SignUp(email, password);
-                return session;
+                // Retry once
+                return await _authWrapper.SignUp(email, password);
             }
         }
     }

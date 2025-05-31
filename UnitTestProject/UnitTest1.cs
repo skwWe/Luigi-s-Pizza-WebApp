@@ -1,56 +1,97 @@
-﻿using AuthServiceTool;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Supabase.Gotrue;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using Supabase.Gotrue.Interfaces;
+using System;
 using System.Threading.Tasks;
+using SupabaseSession = Supabase.Gotrue.Session;
+using SupabaseUser = Supabase.Gotrue.User;
 
-[TestClass]
-public class AuthServiceTests
+namespace AuthServiceTool.Tests
 {
-
-    public class FakeAuthClient : IAuthClient
+    [TestClass]
+    public class AuthServiceTests
     {
-        private readonly bool _shouldFail;
+        private readonly Mock<ISupabaseAuthWrapper> _authWrapperMock;
+        private readonly AuthService _authService;
 
-        public FakeAuthClient(bool shouldFail = false)
+        public AuthServiceTests()
         {
-            _shouldFail = shouldFail;
+            _authWrapperMock = new Mock<ISupabaseAuthWrapper>();
+            _authService = new AuthService(_authWrapperMock.Object);
         }
 
-        public Task<Session> SignUp(string email, string password)
+        [TestMethod]
+        public async Task RegisterAsync_Success_ReturnsSession()
         {
-            if (_shouldFail)
-                throw new Exception("Test error");
+            // Arrange
+            var expectedSession = new SupabaseSession();
+            _authWrapperMock.Setup(x => x.SignUp(
+                "test@example.com",
+                "password123"
+            )).ReturnsAsync(expectedSession);
 
-            return Task.FromResult(new Session { AccessToken = "fake-token" });
+            // Act
+            var result = await _authService.RegisterAsync("test@example.com", "password123");
+
+            // Assert
+            Assert.AreEqual(expectedSession, result);
         }
-    }
 
-    [TestMethod]
-    public async Task RegisterAsync_ReturnsSession_WhenSuccess()
-    {
-        // Arrange
-        var fakeClient = new FakeAuthClient();
-        var service = new AuthService(fakeClient);
+        [TestMethod]
+        public async Task RegisterAsync_RetryOnFailure_ReturnsSession()
+        {
+            // Arrange
+            var expectedSession = new SupabaseSession();
+            _authWrapperMock.SetupSequence(x => x.SignUp(
+                "test@example.com",
+                "password123"
+            ))
+            .ThrowsAsync(new Exception("First attempt failed"))
+            .ReturnsAsync(expectedSession);
 
-        // Act
-        var result = await service.RegisterAsync("user@example.com", "password123");
+            // Act
+            var result = await _authService.RegisterAsync("test@example.com", "password123");
 
-        // Assert
-        Assert.IsNotNull(result);
-        Assert.AreEqual("fake-token", result.AccessToken);
-    }
+            // Assert
+            Assert.AreEqual(expectedSession, result);
+            _authWrapperMock.Verify(x => x.SignUp(
+                "test@example.com",
+                "password123"
+            ), Times.Exactly(2));
+        }
+        [TestMethod]
+        public async Task RegisterAsync_NullEmail_ThrowsArgumentNullException()
+        {
+            // Act & Assert
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(async () =>
+            {
+                await _authService.RegisterAsync(null, "password123");
+            });
+        }
+        [TestMethod]
+        public async Task RegisterAsync_NullPassword_ThrowsArgumentNullException()
+        {
+            // Act & Assert
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(async () =>
+            {
+                await _authService.RegisterAsync("user@example.com", null);
+            });
+        }
+        [TestMethod]
+        public async Task RegisterAsync_CallsSignUp_WithCorrectParameters()
+        {
+            // Arrange
+            string expectedEmail = "check@domain.com";
+            string expectedPassword = "super-secret";
 
-    [TestMethod]
-    public async Task RegisterAsync_ReturnsNull_WhenFails()
-    {
-        // Arrange
-        var fakeClient = new FakeAuthClient(shouldFail: true);
-        var service = new AuthService(fakeClient);
+            _authWrapperMock.Setup(x => x.SignUp(expectedEmail, expectedPassword))
+                .ReturnsAsync(new SupabaseSession());
 
-        // Act
-        var result = await service.RegisterAsync("user@example.com", "password123");
+            // Act
+            await _authService.RegisterAsync(expectedEmail, expectedPassword);
 
-        // Assert
-        Assert.IsNull(result);
+            // Assert
+            _authWrapperMock.Verify(x => x.SignUp(expectedEmail, expectedPassword), Times.Once);
+        }
     }
 }

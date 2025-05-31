@@ -3625,18 +3625,6 @@
             "related": ".xml"
           }
         }
-      },
-      "xunit.runner.visualstudio/3.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/_._": {}
-        },
-        "runtime": {
-          "lib/net8.0/_._": {}
-        },
-        "build": {
-          "build/net8.0/xunit.runner.visualstudio.props": {}
-        }
       }
     },
     "net8.0/browser-wasm": {
@@ -7224,18 +7212,6 @@
           "lib/net8.0/Websocket.Client.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "xunit.runner.visualstudio/3.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/_._": {}
-        },
-        "runtime": {
-          "lib/net8.0/_._": {}
-        },
-        "build": {
-          "build/net8.0/xunit.runner.visualstudio.props": {}
         }
       }
     }
@@ -14196,27 +14172,6 @@
         "websocket.client.5.1.1.nupkg.sha512",
         "websocket.client.nuspec"
       ]
-    },
-    "xunit.runner.visualstudio/3.1.0": {
-      "sha512": "K9O9TOzugqOo4LJ87uuq1VG8RAqGp20Ng85Wx932oT5LNBkIgeeGYubVW5UMnOOTanFNbGavmbuYrJr4INzSwg==",
-      "type": "package",
-      "path": "xunit.runner.visualstudio/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "_content/README.md",
-        "_content/logo-128-transparent.png",
-        "build/net472/xunit.abstractions.dll",
-        "build/net472/xunit.runner.visualstudio.props",
-        "build/net472/xunit.runner.visualstudio.testadapter.dll",
-        "build/net8.0/xunit.abstractions.dll",
-        "build/net8.0/xunit.runner.visualstudio.props",
-        "build/net8.0/xunit.runner.visualstudio.testadapter.dll",
-        "lib/net472/_._",
-        "lib/net8.0/_._",
-        "xunit.runner.visualstudio.3.1.0.nupkg.sha512",
-        "xunit.runner.visualstudio.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -14228,8 +14183,7 @@
       "Microsoft.NET.ILLink.Tasks >= 8.0.11",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.0",
       "Moq >= 4.20.72",
-      "Supabase >= 1.1.1",
-      "xunit.runner.visualstudio >= 3.1.0"
+      "Supabase >= 1.1.1"
     ]
   },
   "packageFolders": {
@@ -14319,12 +14273,6 @@
           "Supabase": {
             "target": "Package",
             "version": "[1.1.1, )"
-          },
-          "xunit.runner.visualstudio": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[3.1.0, )"
           }
         },
         "imports": [
