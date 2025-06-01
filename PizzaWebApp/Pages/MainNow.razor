@@ -10,7 +10,7 @@
 
 <div class="page-container">
     <header class="main-header">
-        <button class="login-btn">Мой профиль</button>
+        <button class="login-btn" @onclick="ToggleProfileSidebar">Мой профиль</button>
     </header>
 
     <div class="top-bar">
@@ -30,11 +30,15 @@
 
         @if (orders == null)
         {
-            <p class="status-message">Загрузка...</p>
+            <div class="status-container">
+                <p class="status-message">Загрузка...</p>
+            </div>
         }
         else if (!orders.Any())
         {
-            <p class="status-message">Нет текущих заказов 😔</p>
+            <div class="status-container">
+                <p class="status-message">Нет текущих заказов 😔</p>
+            </div>
         }
         else
         {
@@ -49,16 +53,37 @@
         }
     </div>
 
+
+    <ProfileSidebar IsOpen="@isProfileSidebarOpen" />
+    @if (isProfileSidebarOpen)
+    {
+        <div class="sidebar-overlay" @onclick="CloseProfileSidebar"></div>
+    }
+
     <footer class="footer">
         <div class="footer-left">
             <img src="images/logo-circle.png" alt="Luigi's Pizza" />
             <span>Luigi’s Pizza</span>
         </div>
-        <div class="footer-right">@currentTime.ToString("HH:mm:ss")</div>
+        <div class="footer-right">@currentTime.ToString("HH:mm")</div>
     </footer>
 </div>
 
 @code {
+
+    private bool isProfileSidebarOpen = false;
+   
+    private void ToggleProfileSidebar()
+    {
+        isProfileSidebarOpen = !isProfileSidebarOpen;
+    }
+
+    private void CloseProfileSidebar()
+    {
+        isProfileSidebarOpen = false;
+    }
+
+
     private List<OrderDetailView> orders;
     private DateTime currentTime = DateTime.Now;
     private Timer? timer;

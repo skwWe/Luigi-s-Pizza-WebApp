@@ -8,63 +8,96 @@
 
 <link href="css/main.css" rel="stylesheet" />
 
+<div class="page-container">
+    <header class="main-header">
+        <button class="login-btn" @onclick="ToggleProfileSidebar">Мой профиль</button>
+    </header>
 
-<header class="main-header">
-    <button class="login-btn">Мой профиль</button>
-</header>
-
-<div class="top-bar">
-    <div class="top-left">
-
-        <img src="/images/logo.png" alt="Logo" class="logo-img" />
-
-        <span class="app-name">Luigi’s Pizza</span>
-    </div>
-    <div class="top-right">
-        <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-new")'>Новые</button>
-        <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-now")'>Текущие</button>
-        <button class="nav-btn active" style="background-color: #DBDFD0;" @onclick='() => Navigation.NavigateTo("/main-done")'>Выполненные</button>
-
-    </div>
-</div>
-
-<h2 class="section-title">Завершённые заказы</h2>
-
-@if (orders == null)
-{
-    <p class="status-message">Загрузка...</p>
-}
-else if (!orders.Any())
-{
-    <p class="status-message">Завершённых заказов нет 😔</p>
-}
-else
-{
-    <div class="orders-container">
-        <div class="orders-grid">
-            @foreach (var order in orders)
-            {
-                <OrderCard Order="order" ShowActionButton="false" />
-            }
+    <div class="top-bar">
+        <div class="top-left">
+            <img src="/images/logo.png" alt="Logo" class="logo-img" />
+            <span class="app-name">Luigi’s Pizza</span>
+        </div>
+        <div class="top-right">
+            <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-new")'>Новые</button>
+            <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-now")'>Текущие</button>
+            <button class="nav-btn active" style="background-color: #DBDFD0;" @onclick='() => Navigation.NavigateTo("/main-done")'>Выполненные</button>
         </div>
     </div>
-}
 
-<footer class="footer">
-    <div class="footer-left">
-        <img src="images/logo-circle.png" alt="Luigi's Pizza" />
-        <span>Luigi’s Pizza</span>
+    <div class="content-wrap">
+        <h2 class="section-title">Завершённые заказы</h2>
+
+        @if (orders == null)
+        {
+            <div class="status-container">
+                <p class="status-message">Загрузка...</p>
+            </div>
+        }
+        else if (!orders.Any())
+        {
+            <div class="status-container">
+                <p class="status-message">Завершённых заказов нет 😔</p>
+            </div>
+        }
+        else
+        {
+            <div class="orders-container">
+                <div class="orders-grid">
+                    @foreach (var order in orders)
+                    {
+                        <OrderCard Order="order" ShowActionButton="false" />
+                    }
+                </div>
+            </div>
+        }
     </div>
-    <div class="footer-right">@DateTime.Now.ToString("HH:mm")</div>
-</footer>
+
+
+
+    <ProfileSidebar IsOpen="@isProfileSidebarOpen" />
+    @if (isProfileSidebarOpen)
+    {
+        <div class="sidebar-overlay" @onclick="CloseProfileSidebar"></div>
+    }
+
+
+    <footer class="footer">
+        <div class="footer-left">
+            <img src="images/logo-circle.png" alt="Luigi's Pizza" />
+            <span>Luigi’s Pizza</span>
+        </div>
+        <div class="footer-right">@currentTime.ToString("HH:mm")</div>
+    </footer>
+</div>
 
 @code {
-    private List<OrderDetailView> orders;
 
+
+    private bool isProfileSidebarOpen = false;
+
+    private void ToggleProfileSidebar()
+    {
+        isProfileSidebarOpen = !isProfileSidebarOpen;
+    }
+
+    private void CloseProfileSidebar()
+    {
+        isProfileSidebarOpen = false;
+    }
+
+
+
+
+
+    private List<OrderDetailView> orders;
+    private DateTime currentTime = DateTime.Now;
+    private Timer? timer;
 
     protected override async Task OnInitializedAsync()
     {
         await LoadOrdersAsync();
+        timer = new Timer(UpdateTime, null, 0, 1000);
     }
 
     private async Task LoadOrdersAsync()
@@ -75,17 +108,6 @@ else
             .Get();
 
         orders = response.Models;
-    }
-   
-}
-
-@code {
-    private DateTime currentTime = DateTime.Now;
-    private Timer? timer;
-
-    protected override void OnInitialized()
-    {
-        timer = new Timer(UpdateTime, null, 0, 1000);
     }
 
     private void UpdateTime(object? state)
