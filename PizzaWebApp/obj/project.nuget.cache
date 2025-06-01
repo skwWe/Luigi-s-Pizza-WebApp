@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZHjI6M8pF5k=",
+  "dgSpecHash": "N9E2Kgd0taM=",
   "success": true,
-  "projectFilePath": "D:\\проверка7\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
+  "projectFilePath": "D:\\катеен\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nastya\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\Nastya\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.3.0\\microsoft.aspnetcore.antiforgery.2.3.0.nupkg.sha512",
