@@ -1,0 +1,118 @@
+﻿@page "/corzina"
+@using PizzaWebApp.Models
+@using PizzaWebApp.Services
+@inject CartService CartService
+@inject NavigationManager Navigation
+@inject MenuService MenuService
+
+<link href="css/Corzina.css" rel="stylesheet" />
+
+<div class="fullscreen-cart">
+    <!-- Уменьшенная герой-секция -->
+    <div class="cart-hero">
+        <div class="hero-image-container">
+            <img src="/images/12.jpg" alt="Pizza" class="hero-image">
+        </div>
+        
+    </div>
+
+    <!-- Основное содержимое с прокруткой -->
+    <div class="scrollable-content">
+        <div class="cart-content">
+            @if (CartService.Items.Count == 0)
+            {
+                <div class="empty-cart">
+                    <p>Ваша корзина пуста</p>
+                    <button class="back-btn" @onclick='() => Navigation.NavigateTo("/menu")'>
+                        ← Вернуться в меню
+                    </button>
+                </div>
+            }
+            else
+            {
+                <div class="pizza-list">
+                    @foreach (var item in CartService.Items)
+                    {
+                        <div class="pizza-card">
+                            <img src="@item.Item.ImageUrl"
+                                 alt="@item.Item.Name"
+                                 onerror="this.onerror=null;this.src='/images/pizza-placeholder.png'"
+                                 class="pizza-image" />
+
+                            <div class="pizza-details">
+                                <h3>@item.Item.Name</h3>
+                                <div class="pizza-controls">
+                                    <button class="control-btn minus" @onclick="() => CartService.RemoveItem(item.Item)">−</button>
+                                    <span class="quantity">@item.Quantity</span>
+                                    <button class="control-btn plus" @onclick="() => CartService.AddItem(item.Item)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="pizza-price">
+                                @item.Item.Price.ToString("0.00") ₽
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Поле для комментариев -->
+                <div class="comment-section">
+                    <h3>Комментарий к заказу</h3>
+                    <textarea @bind="orderComment"
+                              placeholder="Укажите дополнительные пожелания..."
+                              class="comment-input"></textarea>
+                </div>
+
+                <div class="cart-footer">
+                    <div class="total-section">
+                        <span>Итого:</span>
+                        <span class="total-price">@CartService.Items.Sum(x => x.TotalPrice).ToString("0.00") ₽</span>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="continue-btn" @onclick='() => Navigation.NavigateTo("/menu")'>
+                            Вернуться в меню
+                        </button>
+                        <button class="checkout-btn" @onclick="SubmitOrder">
+                            Оформить заказ
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private string orderComment = "";
+
+    private async Task SubmitOrder()
+    {
+        // Добавляем комментарий ко всем элементам заказа
+        foreach (var item in CartService.Items)
+        {
+            item.Comment = orderComment;
+        }
+
+        // Получаем результат оформления заказа (кортеж)
+        var (success, orderId, shortId) = await CartService.Checkout("Гость", "", "");
+
+        if (success)
+        {
+            // Переходим на страницу подтверждения с ID заказа
+            Navigation.NavigateTo($"/order-confirmed/{orderId}");
+        }
+        else
+        {
+            // Обработка ошибки оформления заказа
+            // Можно показать сообщение пользователю
+        }
+    }
+
+    public void Dispose()
+    {
+        CartService.OnChange -= StateHasChanged;
+    }
+}

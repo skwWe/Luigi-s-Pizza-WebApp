@@ -1,0 +1,370 @@
+﻿:root {
+    --primary-color: #364D1D;
+    --secondary-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+    --hero-height: 50vh;
+    /* Увеличенные базовые размеры */
+    --base-font: 1.15rem;
+    --heading-font: clamp(2.07rem, 4.6vw, 3.45rem);
+    --card-padding: 17.25px;
+    --image-size: 92px;
+    --button-size: 34.5px;
+    --gap-size: 17.25px;
+}
+
+/* Базовые стили с увеличенными размерами */
+body {
+    font-size: var(--base-font);
+    line-height: 1.6;
+}
+
+/* Полноэкранный контейнер */
+.fullscreen-cart {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--secondary-color);
+    overflow: hidden;
+}
+
+/* Герой секция с увеличенным изображением */
+.cart-hero {
+    height: calc(var(--hero-height) * 1.15);
+    min-height: 600px;
+    max-height: 600px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+    .cart-hero::before {
+        content: '';
+        position: absolute;
+        top: 0; /* Убрали отрицательные отступы */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/images/12.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0.8);
+        z-index: 1;
+        transform: scale(1); /* Убрали увеличение */
+        object-fit: contain; /* Добавили для сохранения пропорций */
+    }
+
+/* Наложение с текстом */
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    .hero-overlay h1 {
+        font-size: var(--heading-font);
+        margin-bottom: 1.15rem;
+        text-shadow: 0 2.3px 4.6px rgba(0,0,0,0.3);
+    }
+
+/* Индикатор прокрутки */
+.scroll-indicator {
+    position: absolute;
+    bottom: 34.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bounce 2s infinite;
+}
+
+    .scroll-indicator svg {
+        width: 27.6px;
+        height: 27.6px;
+        stroke: var(--white);
+    }
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-11.5px);
+    }
+
+    60% {
+        transform: translateY(-5.75px);
+    }
+}
+
+/* Основное содержимое */
+.scrollable-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cart-content {
+    padding: 2.3rem;
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Карточки пиццы */
+.pizza-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-size);
+    margin-bottom: 23px;
+}
+
+.pizza-card {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border-radius: 11.5px;
+    padding: var(--card-padding);
+    box-shadow: 0 2.3px 9.2px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    transition: transform 0.23s ease;
+}
+
+    .pizza-card:hover {
+        transform: translateY(-2.3px);
+    }
+
+.pizza-image {
+    width: var(--image-size);
+    height: var(--image-size);
+    object-fit: cover;
+    border-radius: 6.9px;
+    margin-right: 17.25px;
+}
+
+.pizza-details {
+    flex-grow: 1;
+}
+
+    .pizza-details h3 {
+        font-size: 1.38rem;
+        margin: 0 0 9.2px 0;
+        color: var(--text-color);
+        font-weight: 600;
+    }
+
+.pizza-controls {
+    display: flex;
+    align-items: center;
+    gap: 11.5px;
+}
+
+.control-btn {
+    width: var(--button-size);
+    height: var(--button-size);
+    border-radius: 50%;
+    border: 1.15px solid var(--border-color);
+    background: var(--white);
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: all 0.23s ease;
+}
+
+    .control-btn:hover {
+        background: var(--primary-color);
+        color: var(--white);
+        border-color: var(--primary-color);
+    }
+
+.quantity {
+    font-size: 1.265rem;
+    font-weight: 500;
+    min-width: 23px;
+    text-align: center;
+}
+
+.pizza-price {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.38rem;
+    min-width: 92px;
+    text-align: right;
+}
+
+/* Секция с комментарием */
+.comment-section {
+    margin: 28.75px 0;
+}
+
+    .comment-section h3 {
+        font-size: 1.38rem;
+        margin-bottom: 13.8px;
+        color: var(--text-color);
+    }
+
+.comment-input {
+    width: 100%;
+    height: 115px;
+    padding: 13.8px;
+    border: 1.15px solid var(--border-color);
+    border-radius: 9.2px;
+    font-family: inherit;
+    font-size: 1.15rem;
+    resize: none;
+    transition: border-color 0.23s ease;
+}
+
+    .comment-input:focus {
+        border-color: var(--primary-color);
+        outline: none;
+    }
+
+/* Пустая корзина */
+.empty-cart {
+    text-align: center;
+    padding: 69px 0;
+}
+
+    .empty-cart p {
+        font-size: 1.38rem;
+        color: var(--text-color);
+        margin-bottom: 28.75px;
+    }
+
+.back-btn {
+    padding: 13.8px 27.6px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 6.9px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: background 0.23s ease;
+}
+
+    .back-btn:hover {
+        background: #2a3d16;
+    }
+
+/* Подвал корзины */
+.cart-footer {
+    border-top: 1.15px solid var(--border-color);
+    padding-top: 28.75px;
+    margin-top: 28.75px;
+}
+
+.total-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28.75px;
+    font-size: 1.61rem;
+}
+
+.total-price {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 17.25px;
+}
+
+.continue-btn, .checkout-btn {
+    flex: 1;
+    padding: 16.1px;
+    border-radius: 6.9px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.23s ease;
+}
+
+.continue-btn {
+    background: var(--white);
+    border: 1.15px solid var(--border-color);
+    color: var(--text-color);
+}
+
+    .continue-btn:hover {
+        background: #f0f0f0;
+    }
+
+.checkout-btn {
+    background: var(--primary-color);
+    border: none;
+    color: var(--white);
+}
+
+    .checkout-btn:hover {
+        background: #2a3d16;
+        transform: translateY(-2.3px);
+        box-shadow: 0 2.3px 9.2px rgba(0,0,0,0.1);
+    }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    :root {
+        --base-font: 1.1rem;
+        --image-size: 100px;
+    }
+
+    .cart-content {
+        padding: 1.725rem;
+    }
+
+    .cart-hero {
+        min-height: 287.5px;
+        max-height: 460px;
+    }
+
+        .cart-hero::before {
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
+            transform: scale(1.2);
+        }
+
+    .pizza-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pizza-image {
+        width: 100%;
+        height: 138px;
+        margin-right: 0;
+        margin-bottom: 13.8px;
+    }
+
+    .pizza-price {
+        margin-top: 13.8px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .continue-btn, .checkout-btn {
+        width: 100%;
+    }
+}

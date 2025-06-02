@@ -33,10 +33,6 @@ namespace PizzaWebApp.Models
         [Column("status")]
         [JsonProperty("status")]
         public string? Status { get; set; }
-        
-        [Column("quantity")]
-        [JsonProperty("quantity")]
-        public int? Quantity { get; set; }
 
         [Column("created_at")]
         [JsonProperty("created_at")]

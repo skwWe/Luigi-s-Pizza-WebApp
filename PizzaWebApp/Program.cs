@@ -8,6 +8,7 @@ using YourNamespace.Services;
 using Microsoft.JSInterop;
 using Microsoft.Extensions.Hosting;
 using PizzaWebApp.Models;
+using PizzaWebApp.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -42,7 +43,8 @@ builder.Services.AddScoped<AuthService>();
 
 // Program.cs
 builder.Services.AddScoped<ProfileService>(); // Добавьте эту строку
-
+builder.Services.AddScoped<MenuService>();
+builder.Services.AddScoped<CartService>();
 
 
 

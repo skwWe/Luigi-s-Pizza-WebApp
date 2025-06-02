@@ -1,0 +1,175 @@
+﻿@page "/menu"
+@using PizzaWebApp.Models
+@using PizzaWebApp.Services
+@inject MenuService MenuService
+@inject NavigationManager Navigation
+@inject Supabase.Client Supabase
+@inject CartService CartService
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<link href="css/main.css" rel="stylesheet" />
+
+<header class="main-header">
+    <button class="login-btn">Мой профиль</button>
+</header>
+
+<div class="top-bar">
+    <div class="top-left">
+        <img src="/images/logo.png" alt="Logo" class="logo-img" />
+        <span class="app-name">Luigi’s Pizza</span>
+    </div>
+    <div class="top-right">
+        <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-new")'>Новые</button>
+        <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-now")'>Текущие</button>
+        <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-done")'>Выполненные</button>
+        
+        <button class="nav-btn active" style="background-color: #DBDFD0;" @onclick='() => Navigation.NavigateTo("/menu")'>Оформить заказ</button>
+        
+        <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/corzina")'>
+            Корзина (@CartService.Items.Sum(x => x.Quantity))
+        </button>
+    </div>
+</div>
+
+<h2 class="section-title">Наше меню</h2>
+
+<div class="main-content">
+    @if (burgers == null)
+    {
+        <div class="loading">Загрузка...</div>
+    }
+    else if (!burgers.Any())
+    {
+        <div class="no-items">Нет доступных пицц</div>
+    }
+    else
+    {
+        <div class="burgers-grid">
+            @foreach (var burger in burgers)
+            {
+                <div class="burger-card">
+                    <div class="burger-image-container">
+                        @if (!string.IsNullOrEmpty(burger.ImageUrl))
+                        {
+                            <img src="@burger.ImageUrl"
+                                 alt="@burger.Name"
+                                 class="burger-image"
+                                 @onerror="() => HandleImageError(burger)" />
+                        }
+                        else
+                        {
+                            <div class="no-image">Нет изображения</div>
+                        }
+                    </div>
+
+                    <div class="burger-content">
+                        <h3 class="burger-title">@burger.Name</h3>
+                        <div class="burger-description">
+                            @foreach (var line in burger.Description.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+                            {
+                                <p>@line</p>
+                            }
+                        </div>
+                        <div class="burger-footer">
+                            @if (IsInCart(burger))
+                            {
+                                <div class="footer-content">
+                                    <span class="burger-price">@burger.Price.ToString("0") ₽</span>
+                                    <div class="quantity-controls">
+                                        <button class="quantity-btn" @onclick="() => AdjustQuantity(burger, -1)">-</button>
+                                        <span class="quantity">@GetCartItem(burger)?.Quantity</span>
+                                        <button class="quantity-btn" @onclick="() => AdjustQuantity(burger, 1)">+</button>
+                                    </div>
+                                    <div class="empty-space"></div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="footer-content">
+                                    <span class="burger-price">@burger.Price.ToString("0") ₽</span>
+                                    <button class="add-btn" @onclick="async () => await AddToCart(burger)">
+                                        Добавить
+                                    </button>
+                                    <div class="empty-space"></div>
+                                </div>
+                            }
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<footer class="footer">
+    <div class="footer-left">
+        <img src="images/logo-circle.png" alt="Luigi's Pizza" />
+        <span>Luigi’s Pizza</span>
+    </div>
+    <div class="footer-right">@currentTime.ToString("HH:mm")</div>
+</footer>
+
+@code {
+    private List<MenuItem> burgers;
+    private DateTime currentTime = DateTime.Now;
+    private Timer? timer;
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBurgers();
+        CartService.OnChange += StateHasChanged;
+        timer = new Timer(UpdateTime, null, 0, 1000);
+    }
+
+    private async Task LoadBurgers()
+    {
+        burgers = await MenuService.GetBurgersAsync();
+
+        foreach (var burger in burgers)
+        {
+            if (!string.IsNullOrEmpty(burger.ImageUrl))
+            {
+                burger.ImageUrl = await MenuService.GetImageUrl(burger.ImageUrl);
+            }
+        }
+    }
+
+    private void HandleImageError(MenuItem burger)
+    {
+        burger.ImageUrl = null;
+        StateHasChanged();
+    }
+
+   
+
+    public void Dispose()
+    {
+        CartService.OnChange -= StateHasChanged;
+    }
+    private bool IsInCart(MenuItem item)
+    {
+        return CartService.Items.Any(x => x.Item.Id == item.Id);
+    }
+
+    private CartItem? GetCartItem(MenuItem item)
+    {
+        return CartService.Items.FirstOrDefault(x => x.Item.Id == item.Id);
+    }
+
+
+    private void AdjustQuantity(MenuItem item, int change)
+    {
+        CartService.AddOrUpdateItem(item, change);
+    }
+    private async Task AddToCart(MenuItem burger)
+    {
+        await CartService.AddItem(burger);
+    }
+
+    private void UpdateTime(object? state)
+    {
+        currentTime = DateTime.Now;
+        InvokeAsync(StateHasChanged);
+    }
+}

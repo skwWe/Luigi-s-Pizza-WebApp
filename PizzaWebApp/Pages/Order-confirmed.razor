@@ -1,0 +1,366 @@
+﻿@page "/order-confirmed/{orderId}"
+@inject NavigationManager Navigation
+@inject Supabase.Client Supabase
+@using PizzaWebApp.Models
+@using System.Globalization
+
+<div class="employee-confirmation">
+    @if (orderDetails == null)
+    {
+        <p>Загрузка...</p>
+    }
+    else if (!orderDetails.Any())
+    {
+        <p>Заказ не найден</p>
+    }
+    else
+    {
+        var order = orderDetails.First();
+        <div class="confirmation-panel">
+            <div class="status-header success">
+                <div class="status-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                </div>
+                <h2>Заказ #@order.ShortId зарегистрирован</h2>
+            </div>
+
+            <div class="order-details">
+                <div class="detail-item">
+                    <span class="detail-label">Статус:</span>
+                    <span class="detail-value status-badge new">@order.Status</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Время:</span>
+                    <span class="detail-value">@FormatMoscowTime(order.OrderTime)</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Тип:</span>
+                    <span class="detail-value">@order.OrderType</span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn print-btn" @onclick="PrintOrder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 14h12v8H6z" /></svg>
+                    Печать
+                </button>
+                <button class="action-btn next-btn" @onclick="GoToMenu">
+                    В меню
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg>
+                </button>
+            </div>
+
+            <div class="pizza-list">
+                <h3>Состав заказа:</h3>
+                @foreach (var item in orderDetails)
+                {
+                    <div class="pizza-item">
+                        <span>@item.PizzaName</span>
+                        <span class="quantity-badge">@item.Quantity шт.</span> <!-- Всегда показываем количество -->
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+<style>
+    .employee-confirmation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        /* Новые стили для фона */
+        background: url('/images/13.jpg') no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+    }
+
+        /* Остальные стили остаются без изменений */
+        .employee-confirmation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(245, 247, 250, 0.85);
+            z-index: 0;
+        }
+
+    .confirmation-panel {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 500px;
+        overflow: hidden;
+        animation: slideUp 0.4s ease-out;
+        position: relative; /* Добавляем для корректного отображения поверх псевдоэлемента */
+        z-index: 1;
+    }
+
+    @@keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .status-header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .status-header.success {
+        background-color: #f0f9eb;
+        border-bottom: 1px solid #e1f5d8;
+    }
+
+    .status-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #4caf50;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .status-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: white;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #2c3e50;
+        font-weight: 600;
+    }
+
+    .order-details {
+        padding: 20px;
+        display: grid;
+        gap: 12px;
+    }
+
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .detail-label {
+        color: #7f8c8d;
+        font-size: 0.95rem;
+    }
+
+    .detail-value {
+        font-weight: 500;
+        color: #2c3e50;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .status-badge.new {
+        background-color: #e3f2fd;
+        color: #1976d2;
+    }
+
+    .action-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 0 20px 20px;
+    }
+
+    .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+    }
+
+    .action-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .print-btn {
+        background-color: #f5f5f5;
+        color: #555;
+    }
+
+    .print-btn:hover {
+        background-color: #e0e0e0;
+    }
+
+    .next-btn {
+        background-color: #364D1D;
+        color: white;
+    }
+
+    .next-btn:hover {
+        background-color: #2a3d16;
+    }
+
+    @@media (max-width: 480px) {
+        .action-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .pizza-list {
+        margin-top: 20px;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+
+    .pizza-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    .order-total {
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #ddd;
+        text-align: right;
+        font-size: 1.1rem;
+    }
+
+    .pizza-list {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    .pizza-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .pizza-item:last-child {
+            border-bottom: none;
+        }
+
+    .quantity-badge {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        margin-left: 8px;
+    }
+</style>
+
+@code {
+    public class OrderDetail
+    {
+        public Guid OrderId { get; set; }
+        public string ShortId { get; set; }
+        public DateTime OrderTime { get; set; }
+        public string Status { get; set; }
+        public string OrderType { get; set; } = "В зале";
+        public string PizzaName { get; set; }
+        public int Quantity { get; set; } = 1;
+    }
+
+    [Parameter]
+    public string OrderId { get; set; }
+
+    private List<OrderDetail> orderDetails = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            if (Guid.TryParse(OrderId, out var orderGuid))
+            {
+                // Загружаем данные из представления
+                var response = await Supabase.From<OrderDetailView>()
+                    .Where(x => x.OrderId == orderGuid)
+                    .Get();
+
+                if (response.Models?.Any() == true)
+                {
+                    orderDetails = response.Models.Select(d => new OrderDetail
+                        {
+                            OrderId = d.OrderId,
+                            ShortId = d.ShortId,
+                            OrderTime = d.OrderTime,
+                            Status = d.Status,
+                            PizzaName = d.PizzaName,
+                            Quantity = d.Quantity // Используем Quantity из OrderDetailView
+                        }).ToList();
+
+                    Console.WriteLine($"Загружено позиций: {orderDetails.Count}");
+                    foreach (var item in orderDetails)
+                    {
+                        Console.WriteLine($"{item.PizzaName} - {item.Quantity} шт.");
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки заказа: {ex.Message}");
+        }
+    }
+
+    private string FormatMoscowTime(DateTime dateTime)
+    {
+        try
+        {
+            // Если время в UTC
+            if (dateTime.Kind == DateTimeKind.Utc)
+            {
+                var moscowZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
+                var moscowTime = TimeZoneInfo.ConvertTimeFromUtc(dateTime, moscowZone);
+                return moscowTime.ToString("HH:mm", CultureInfo.InvariantCulture);
+            }
+
+            // Если время уже локальное или не указано
+            return dateTime.ToString("HH:mm");
+        }
+        catch
+        {
+            // Резервный вариант
+            return dateTime.AddHours(3).ToString("HH:mm");
+        }
+    }
+
+    private void GoToMenu()
+    {
+        Navigation.NavigateTo("/menu", forceLoad: true);
+    }
+
+    private void PrintOrder()
+    {
+        // Логика печати заказа
+        Console.WriteLine("Печать заказа...");
+    }
+}
