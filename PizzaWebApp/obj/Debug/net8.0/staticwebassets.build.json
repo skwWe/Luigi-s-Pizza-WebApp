@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s0PjOjrykklRkDv2iK1kVVftPxdncPdv6uTysiowFLE=",
+  "Hash": "nUKTBPxbKVkC0fPeqXnqibNSuKa8p+xfrMLX/pgoWl8=",
   "Source": "PizzaWebApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "qul170hbcz",
-      "Integrity": "4lsZmyXcSKVbm+e++3hh/7uS9UzH//FQ6+WOTUIqCrc=",
+      "Fingerprint": "211fidisnl",
+      "Integrity": "9ng7Cem02uoXUiax5Zz0OwMLZ1MUyLutcqqAOee3C5g=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -2530,8 +2530,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "ng8g0gc4oz",
-      "Integrity": "147nzWo12nczzZJ8i8yOST2zowVS0vIAR7rSTrK5QkQ=",
+      "Fingerprint": "y3xs5x19sl",
+      "Integrity": "YtC8nrWlhgeF7tyqwyF8qUq1/rW1qxMj4PitVDQB23o=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\PizzaWebApp.pdb"
@@ -2551,8 +2551,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "cnhfl0ogc6",
-      "Integrity": "6EPp5hM5imj3nOiUGVJZ4G9dGXu0PgYmei8BBfpAtkY=",
+      "Fingerprint": "k7b6bj7um5",
+      "Integrity": "QIUHHAoVyromU/5LmhnfNYZIZBvM6I96mrQ4C4qOw+s=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\webcil\\PizzaWebApp.wasm"
@@ -6464,7 +6464,7 @@
       "OriginalItemSpec": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.IO.Compression.ZipFile.wasm"
     },
     {
-      "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\0v5eurzg0b-ng8g0gc4oz.gz",
+      "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\0v5eurzg0b-y3xs5x19sl.gz",
       "SourceId": "PizzaWebApp",
       "SourceType": "Computed",
       "ContentRoot": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\",
@@ -6478,8 +6478,8 @@
       "RelatedAsset": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\PizzaWebApp.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "b36ekd26g6",
-      "Integrity": "V57A5pNkurgOxYSNzcj+aPR4ABwNT8LLyZZ41Q3z6a8=",
+      "Fingerprint": "xjb5qhdn6a",
+      "Integrity": "Q2jj1kiE3/jHmfsOX/jZbyfC8ds0RNIM6W0NtMIiHFg=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\PizzaWebApp.pdb"
@@ -11945,7 +11945,7 @@
       "OriginalItemSpec": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Newtonsoft.Json.wasm"
     },
     {
-      "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\xrz8zdxb1x-qul170hbcz.gz",
+      "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\xrz8zdxb1x-211fidisnl.gz",
       "SourceId": "PizzaWebApp",
       "SourceType": "Computed",
       "ContentRoot": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\",
@@ -11959,8 +11959,8 @@
       "RelatedAsset": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "bfopzh6tcu",
-      "Integrity": "GTEc2OMvary1075VssfKQylYru2uRpgts+8hIseJVtQ=",
+      "Fingerprint": "pcm8j8a9sa",
+      "Integrity": "KRat6U9YcY1HgNIKxnVSO1P0OoZBmhN+un5vn/6wG3I=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -12323,7 +12323,7 @@
       "OriginalItemSpec": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Hosting.Abstractions.wasm"
     },
     {
-      "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\z3zk27namj-cnhfl0ogc6.gz",
+      "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\z3zk27namj-k7b6bj7um5.gz",
       "SourceId": "PizzaWebApp",
       "SourceType": "Computed",
       "ContentRoot": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\",
@@ -12337,8 +12337,8 @@
       "RelatedAsset": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\PizzaWebApp.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "b1r3jfndpq",
-      "Integrity": "YRXi+7KHrdGelClowCbgAsto4rpTOQPPPuVVn5WnFHw=",
+      "Fingerprint": "5d5lqe1p6k",
+      "Integrity": "abDX0z0LMTEN36dH/leEhpkXY0o2+dI+/0ghqn4Ne4E=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\PizzaWebApp.wasm"
@@ -12631,8 +12631,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "yqsbzmdcyq",
-      "Integrity": "SlFc822YBgtJGy6PdHrCvF/Ee9ErqQyxomMpu0Qr6G0=",
+      "Fingerprint": "uxo2nsqz7v",
+      "Integrity": "wrG2TFR/JCdyGNysgjX+iSVyRIz/uKnS2pjHcHGGfCs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\app.css"
@@ -12694,8 +12694,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "hoy6gu5vwt",
-      "Integrity": "77KYe+0DADOcsjDNyhE9Zz3vkz+N2Wm+5fvuG84HWms=",
+      "Fingerprint": "4b0iczxr78",
+      "Integrity": "8GVSG1gAo+qdqg8cRahYRXVo7b97agcVt1+vg4baPFo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\main.css"
@@ -12715,8 +12715,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "mzmwp0yywp",
-      "Integrity": "YpVQVV1mQ6YcTrlTBpxMCIiq0Amjvj8wpY2spCXf0uA=",
+      "Fingerprint": "dl14x4p63z",
+      "Integrity": "EUKo9MFudetyjBXyquFX0CYzqkPi303b6cXceyq4gcs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Profil.css"
@@ -12762,6 +12762,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icon-192.png"
+    },
+    {
+      "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\bowser-sad.png",
+      "SourceId": "PizzaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/bowser-sad#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "turgqm7pnv",
+      "Integrity": "BRNB+HqDU5AlEZ1yK9sBXdEp80bf23EZEqnlsBBPvX0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bowser-sad.png"
     },
     {
       "Identity": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\e76f272fb8c2fb73d5bb9dfe35cca14d.png",
@@ -13110,11 +13131,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4lsZmyXcSKVbm+e++3hh/7uS9UzH//FQ6+WOTUIqCrc=\""
+          "Value": "\"9ng7Cem02uoXUiax5Zz0OwMLZ1MUyLutcqqAOee3C5g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:47:08 GMT"
+          "Value": "Mon, 02 Jun 2025 09:48:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13124,18 +13145,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4lsZmyXcSKVbm+e++3hh/7uS9UzH//FQ6+WOTUIqCrc="
+          "Value": "sha256-9ng7Cem02uoXUiax5Zz0OwMLZ1MUyLutcqqAOee3C5g="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\xrz8zdxb1x-qul170hbcz.gz",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\xrz8zdxb1x-211fidisnl.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000077942323"
+          "Quality": "0.000077936248"
         }
       ],
       "ResponseHeaders": [
@@ -13145,15 +13166,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12829"
+          "Value": "12830"
         },
         {
           "Name": "ETag",
-          "Value": "\"GTEc2OMvary1075VssfKQylYru2uRpgts+8hIseJVtQ=\""
+          "Value": "\"KRat6U9YcY1HgNIKxnVSO1P0OoZBmhN+un5vn/6wG3I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:40:02 GMT"
+          "Value": "Mon, 02 Jun 2025 09:46:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13173,19 +13194,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4lsZmyXcSKVbm+e++3hh/7uS9UzH//FQ6+WOTUIqCrc=\""
+          "Value": "W/\"9ng7Cem02uoXUiax5Zz0OwMLZ1MUyLutcqqAOee3C5g=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4lsZmyXcSKVbm+e++3hh/7uS9UzH//FQ6+WOTUIqCrc="
+          "Value": "sha256-9ng7Cem02uoXUiax5Zz0OwMLZ1MUyLutcqqAOee3C5g="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\xrz8zdxb1x-qul170hbcz.gz",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\xrz8zdxb1x-211fidisnl.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13194,7 +13215,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12829"
+          "Value": "12830"
         },
         {
           "Name": "Content-Type",
@@ -13202,11 +13223,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GTEc2OMvary1075VssfKQylYru2uRpgts+8hIseJVtQ=\""
+          "Value": "\"KRat6U9YcY1HgNIKxnVSO1P0OoZBmhN+un5vn/6wG3I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:40:02 GMT"
+          "Value": "Mon, 02 Jun 2025 09:46:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13224,7 +13245,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GTEc2OMvary1075VssfKQylYru2uRpgts+8hIseJVtQ="
+          "Value": "sha256-KRat6U9YcY1HgNIKxnVSO1P0OoZBmhN+un5vn/6wG3I="
         }
       ]
     },
@@ -29268,7 +29289,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "79288"
+          "Value": "83460"
         },
         {
           "Name": "Content-Type",
@@ -29276,11 +29297,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"147nzWo12nczzZJ8i8yOST2zowVS0vIAR7rSTrK5QkQ=\""
+          "Value": "\"YtC8nrWlhgeF7tyqwyF8qUq1/rW1qxMj4PitVDQB23o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:39:58 GMT"
+          "Value": "Mon, 02 Jun 2025 09:48:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29290,18 +29311,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-147nzWo12nczzZJ8i8yOST2zowVS0vIAR7rSTrK5QkQ="
+          "Value": "sha256-YtC8nrWlhgeF7tyqwyF8qUq1/rW1qxMj4PitVDQB23o="
         }
       ]
     },
     {
       "Route": "_framework/PizzaWebApp.pdb",
-      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\0v5eurzg0b-ng8g0gc4oz.gz",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\0v5eurzg0b-y3xs5x19sl.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000017979144"
+          "Quality": "0.000017179769"
         }
       ],
       "ResponseHeaders": [
@@ -29311,15 +29332,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "55619"
+          "Value": "58207"
         },
         {
           "Name": "ETag",
-          "Value": "\"V57A5pNkurgOxYSNzcj+aPR4ABwNT8LLyZZ41Q3z6a8=\""
+          "Value": "\"Q2jj1kiE3/jHmfsOX/jZbyfC8ds0RNIM6W0NtMIiHFg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:39:58 GMT"
+          "Value": "Mon, 02 Jun 2025 09:46:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29339,19 +29360,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"147nzWo12nczzZJ8i8yOST2zowVS0vIAR7rSTrK5QkQ=\""
+          "Value": "W/\"YtC8nrWlhgeF7tyqwyF8qUq1/rW1qxMj4PitVDQB23o=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-147nzWo12nczzZJ8i8yOST2zowVS0vIAR7rSTrK5QkQ="
+          "Value": "sha256-YtC8nrWlhgeF7tyqwyF8qUq1/rW1qxMj4PitVDQB23o="
         }
       ]
     },
     {
       "Route": "_framework/PizzaWebApp.pdb.gz",
-      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\0v5eurzg0b-ng8g0gc4oz.gz",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\0v5eurzg0b-y3xs5x19sl.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -29360,7 +29381,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "55619"
+          "Value": "58207"
         },
         {
           "Name": "Content-Type",
@@ -29368,11 +29389,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"V57A5pNkurgOxYSNzcj+aPR4ABwNT8LLyZZ41Q3z6a8=\""
+          "Value": "\"Q2jj1kiE3/jHmfsOX/jZbyfC8ds0RNIM6W0NtMIiHFg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:39:58 GMT"
+          "Value": "Mon, 02 Jun 2025 09:46:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29390,7 +29411,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-V57A5pNkurgOxYSNzcj+aPR4ABwNT8LLyZZ41Q3z6a8="
+          "Value": "sha256-Q2jj1kiE3/jHmfsOX/jZbyfC8ds0RNIM6W0NtMIiHFg="
         }
       ]
     },
@@ -29405,7 +29426,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "119573"
+          "Value": "126741"
         },
         {
           "Name": "Content-Type",
@@ -29413,11 +29434,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6EPp5hM5imj3nOiUGVJZ4G9dGXu0PgYmei8BBfpAtkY=\""
+          "Value": "\"QIUHHAoVyromU/5LmhnfNYZIZBvM6I96mrQ4C4qOw+s=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:39:58 GMT"
+          "Value": "Mon, 02 Jun 2025 09:48:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29427,18 +29448,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6EPp5hM5imj3nOiUGVJZ4G9dGXu0PgYmei8BBfpAtkY="
+          "Value": "sha256-QIUHHAoVyromU/5LmhnfNYZIZBvM6I96mrQ4C4qOw+s="
         }
       ]
     },
     {
       "Route": "_framework/PizzaWebApp.wasm",
-      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\z3zk27namj-cnhfl0ogc6.gz",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\z3zk27namj-k7b6bj7um5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000024121379"
+          "Quality": "0.000022893773"
         }
       ],
       "ResponseHeaders": [
@@ -29448,15 +29469,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "41456"
+          "Value": "43679"
         },
         {
           "Name": "ETag",
-          "Value": "\"YRXi+7KHrdGelClowCbgAsto4rpTOQPPPuVVn5WnFHw=\""
+          "Value": "\"abDX0z0LMTEN36dH/leEhpkXY0o2+dI+/0ghqn4Ne4E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:39:58 GMT"
+          "Value": "Mon, 02 Jun 2025 09:46:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29476,19 +29497,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"6EPp5hM5imj3nOiUGVJZ4G9dGXu0PgYmei8BBfpAtkY=\""
+          "Value": "W/\"QIUHHAoVyromU/5LmhnfNYZIZBvM6I96mrQ4C4qOw+s=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6EPp5hM5imj3nOiUGVJZ4G9dGXu0PgYmei8BBfpAtkY="
+          "Value": "sha256-QIUHHAoVyromU/5LmhnfNYZIZBvM6I96mrQ4C4qOw+s="
         }
       ]
     },
     {
       "Route": "_framework/PizzaWebApp.wasm.gz",
-      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\z3zk27namj-cnhfl0ogc6.gz",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\Debug\\net8.0\\compressed\\z3zk27namj-k7b6bj7um5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -29497,7 +29518,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "41456"
+          "Value": "43679"
         },
         {
           "Name": "Content-Type",
@@ -29505,11 +29526,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YRXi+7KHrdGelClowCbgAsto4rpTOQPPPuVVn5WnFHw=\""
+          "Value": "\"abDX0z0LMTEN36dH/leEhpkXY0o2+dI+/0ghqn4Ne4E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:39:58 GMT"
+          "Value": "Mon, 02 Jun 2025 09:46:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29527,7 +29548,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YRXi+7KHrdGelClowCbgAsto4rpTOQPPPuVVn5WnFHw="
+          "Value": "sha256-abDX0z0LMTEN36dH/leEhpkXY0o2+dI+/0ghqn4Ne4E="
         }
       ]
     },
@@ -53928,7 +53949,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3820"
+          "Value": "3901"
         },
         {
           "Name": "Content-Type",
@@ -53936,11 +53957,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"SlFc822YBgtJGy6PdHrCvF/Ee9ErqQyxomMpu0Qr6G0=\""
+          "Value": "\"wrG2TFR/JCdyGNysgjX+iSVyRIz/uKnS2pjHcHGGfCs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 31 May 2025 17:34:16 GMT"
+          "Value": "Mon, 02 Jun 2025 08:00:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -53950,12 +53971,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-SlFc822YBgtJGy6PdHrCvF/Ee9ErqQyxomMpu0Qr6G0="
+          "Value": "sha256-wrG2TFR/JCdyGNysgjX+iSVyRIz/uKnS2pjHcHGGfCs="
         }
       ]
     },
     {
-      "Route": "css/app.yqsbzmdcyq.css",
+      "Route": "css/app.uxo2nsqz7v.css",
       "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -53965,7 +53986,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3820"
+          "Value": "3901"
         },
         {
           "Name": "Content-Type",
@@ -53973,11 +53994,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"SlFc822YBgtJGy6PdHrCvF/Ee9ErqQyxomMpu0Qr6G0=\""
+          "Value": "\"wrG2TFR/JCdyGNysgjX+iSVyRIz/uKnS2pjHcHGGfCs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 31 May 2025 17:34:16 GMT"
+          "Value": "Mon, 02 Jun 2025 08:00:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -53987,7 +54008,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "yqsbzmdcyq"
+          "Value": "uxo2nsqz7v"
         },
         {
           "Name": "label",
@@ -53995,7 +54016,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-SlFc822YBgtJGy6PdHrCvF/Ee9ErqQyxomMpu0Qr6G0="
+          "Value": "sha256-wrG2TFR/JCdyGNysgjX+iSVyRIz/uKnS2pjHcHGGfCs="
         }
       ]
     },
@@ -54164,6 +54185,51 @@
       ]
     },
     {
+      "Route": "css/main.4b0iczxr78.css",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\main.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5461"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8GVSG1gAo+qdqg8cRahYRXVo7b97agcVt1+vg4baPFo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 09:44:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4b0iczxr78"
+        },
+        {
+          "Name": "label",
+          "Value": "css/main.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8GVSG1gAo+qdqg8cRahYRXVo7b97agcVt1+vg4baPFo="
+        }
+      ]
+    },
+    {
       "Route": "css/main.css",
       "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\main.css",
       "Selectors": [],
@@ -54174,7 +54240,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5195"
+          "Value": "5461"
         },
         {
           "Name": "Content-Type",
@@ -54182,11 +54248,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"77KYe+0DADOcsjDNyhE9Zz3vkz+N2Wm+5fvuG84HWms=\""
+          "Value": "\"8GVSG1gAo+qdqg8cRahYRXVo7b97agcVt1+vg4baPFo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 16:15:24 GMT"
+          "Value": "Mon, 02 Jun 2025 09:44:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -54196,52 +54262,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-77KYe+0DADOcsjDNyhE9Zz3vkz+N2Wm+5fvuG84HWms="
-        }
-      ]
-    },
-    {
-      "Route": "css/main.hoy6gu5vwt.css",
-      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\main.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5195"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"77KYe+0DADOcsjDNyhE9Zz3vkz+N2Wm+5fvuG84HWms=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 16:15:24 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "hoy6gu5vwt"
-        },
-        {
-          "Name": "label",
-          "Value": "css/main.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-77KYe+0DADOcsjDNyhE9Zz3vkz+N2Wm+5fvuG84HWms="
+          "Value": "sha256-8GVSG1gAo+qdqg8cRahYRXVo7b97agcVt1+vg4baPFo="
         }
       ]
     },
@@ -54256,7 +54277,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6069"
+          "Value": "9801"
         },
         {
           "Name": "Content-Type",
@@ -54264,11 +54285,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YpVQVV1mQ6YcTrlTBpxMCIiq0Amjvj8wpY2spCXf0uA=\""
+          "Value": "\"EUKo9MFudetyjBXyquFX0CYzqkPi303b6cXceyq4gcs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:47:04 GMT"
+          "Value": "Mon, 02 Jun 2025 07:36:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -54278,12 +54299,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YpVQVV1mQ6YcTrlTBpxMCIiq0Amjvj8wpY2spCXf0uA="
+          "Value": "sha256-EUKo9MFudetyjBXyquFX0CYzqkPi303b6cXceyq4gcs="
         }
       ]
     },
     {
-      "Route": "css/Profil.mzmwp0yywp.css",
+      "Route": "css/Profil.dl14x4p63z.css",
       "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\css\\Profil.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -54293,7 +54314,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6069"
+          "Value": "9801"
         },
         {
           "Name": "Content-Type",
@@ -54301,11 +54322,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YpVQVV1mQ6YcTrlTBpxMCIiq0Amjvj8wpY2spCXf0uA=\""
+          "Value": "\"EUKo9MFudetyjBXyquFX0CYzqkPi303b6cXceyq4gcs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 17:47:04 GMT"
+          "Value": "Mon, 02 Jun 2025 07:36:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -54315,7 +54336,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mzmwp0yywp"
+          "Value": "dl14x4p63z"
         },
         {
           "Name": "label",
@@ -54323,7 +54344,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YpVQVV1mQ6YcTrlTBpxMCIiq0Amjvj8wpY2spCXf0uA="
+          "Value": "sha256-EUKo9MFudetyjBXyquFX0CYzqkPi303b6cXceyq4gcs="
         }
       ]
     },
@@ -54488,6 +54509,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-DbpQaq68ZSb5IoPosBErM1QWBfsbTxpJqhU0REi6wP4="
+        }
+      ]
+    },
+    {
+      "Route": "images/bowser-sad.png",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\bowser-sad.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28505"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BRNB+HqDU5AlEZ1yK9sBXdEp80bf23EZEqnlsBBPvX0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 09:33:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BRNB+HqDU5AlEZ1yK9sBXdEp80bf23EZEqnlsBBPvX0="
+        }
+      ]
+    },
+    {
+      "Route": "images/bowser-sad.turgqm7pnv.png",
+      "AssetFile": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\bowser-sad.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28505"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BRNB+HqDU5AlEZ1yK9sBXdEp80bf23EZEqnlsBBPvX0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 09:33:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "turgqm7pnv"
+        },
+        {
+          "Name": "label",
+          "Value": "images/bowser-sad.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BRNB+HqDU5AlEZ1yK9sBXdEp80bf23EZEqnlsBBPvX0="
         }
       ]
     },

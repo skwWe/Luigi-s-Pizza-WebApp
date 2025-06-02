@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yqsbzmdcyq</Fingerprint>
-      <Integrity>SlFc822YBgtJGy6PdHrCvF/Ee9ErqQyxomMpu0Qr6G0=</Integrity>
+      <Fingerprint>uxo2nsqz7v</Fingerprint>
+      <Integrity>wrG2TFR/JCdyGNysgjX+iSVyRIz/uKnS2pjHcHGGfCs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hoy6gu5vwt</Fingerprint>
-      <Integrity>77KYe+0DADOcsjDNyhE9Zz3vkz+N2Wm+5fvuG84HWms=</Integrity>
+      <Fingerprint>4b0iczxr78</Fingerprint>
+      <Integrity>8GVSG1gAo+qdqg8cRahYRXVo7b97agcVt1+vg4baPFo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\main.css'))</OriginalItemSpec>
@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>mzmwp0yywp</Fingerprint>
-      <Integrity>YpVQVV1mQ6YcTrlTBpxMCIiq0Amjvj8wpY2spCXf0uA=</Integrity>
+      <Fingerprint>dl14x4p63z</Fingerprint>
+      <Integrity>EUKo9MFudetyjBXyquFX0CYzqkPi303b6cXceyq4gcs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Profil.css'))</OriginalItemSpec>
@@ -125,6 +125,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\icon-192.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\bowser-sad.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>PizzaWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>images/bowser-sad.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>turgqm7pnv</Fingerprint>
+      <Integrity>BRNB+HqDU5AlEZ1yK9sBXdEp80bf23EZEqnlsBBPvX0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\bowser-sad.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\e76f272fb8c2fb73d5bb9dfe35cca14d.png'))">
       <SourceType>Package</SourceType>

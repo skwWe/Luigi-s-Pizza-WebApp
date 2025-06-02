@@ -8,6 +8,7 @@
 
 <link href="css/main.css" rel="stylesheet" />
 
+
 <div class="page-container">
     <header class="main-header">
         <button class="login-btn" @onclick="ToggleProfileSidebar">Мой профиль</button>
@@ -19,7 +20,7 @@
             <span class="app-name">Luigi’s Pizza</span>
         </div>
         <div class="top-right">
-            <button class="nav-btn active" style="background-color: #DBDFD0;" @onclick='() => Navigation.NavigateTo("/main-new")'>Новые</button>
+            <button class="nav-btn active" @onclick='() => Navigation.NavigateTo("/main-new")'>Новые</button>
             <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-now")'>Текущие</button>
             <button class="nav-btn" @onclick='() => Navigation.NavigateTo("/main-done")'>Выполненные</button>
         </div>
@@ -37,7 +38,8 @@
         else if (!orders.Any())
         {
             <div class="status-container">
-                <p class="status-message">Нет новых заказов 😔</p>
+                <img src="images/bowser-sad.png" alt="Нет заказов" class="status-image" />
+                <p class="status-message">Нет новых заказов</p>
             </div>
         }
         else
@@ -46,13 +48,36 @@
                 <div class="orders-grid">
                     @foreach (var order in orders)
                     {
-                        <OrderCard Order="order" ShowActionButton="true" ActionLabel="Начать" OnAction="StartOrderAsync" />
+                        <div class="order-card">
+                            <div class="order-time">@order.OrderTime.ToString("HH:mm")</div>
+                            <div class="order-content">
+                                <h3>Заказ @order.ShortId</h3>
+                                @foreach (var pizza in order.Pizzas)
+                                {
+                                    <div class="pizza-item">
+                                        <p>@pizza.PizzaName x(@pizza.Quantity)</p>
+                                        <p><b>Состав:</b> @string.Join(", ", pizza.Ingredients)</p>
+                                        @if (pizza.Toppings?.Count > 0)
+                                        {
+                                            <p><b>Допы:</b> @string.Join(", ", pizza.Toppings)</p>
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(pizza.Comment))
+                                        {
+                                            <p><b>Комментарий:</b> <i>@pizza.Comment</i></p>
+                                        }
+                                        <hr />
+                                    </div>
+                                }
+                            </div>
+                            <div class="btn-container">
+                                <button class="ready-btn" @onclick="() => CompleteOrderAsync(order)">Начать</button>
+                            </div>
+                        </div>
                     }
                 </div>
             </div>
         }
     </div>
-
 
     <ProfileSidebar IsOpen="@isProfileSidebarOpen" />
     @if (isProfileSidebarOpen)
@@ -68,9 +93,7 @@
         <div class="footer-right">@currentTime.ToString("HH:mm")</div>
     </footer>
 </div>
-
 @code {
-
     private bool isProfileSidebarOpen = false;
 
     private void ToggleProfileSidebar()
@@ -83,17 +106,15 @@
         isProfileSidebarOpen = false;
     }
 
+    private List<OrderWithPizzas> orders;
 
-
-
-
-    private List<OrderDetailView> orders;
     private DateTime currentTime = DateTime.Now;
     private Timer? timer;
 
     protected override async Task OnInitializedAsync()
     {
         await LoadOrdersAsync();
+
         timer = new Timer(UpdateTime, null, 0, 1000);
     }
 
@@ -103,10 +124,36 @@
             .From<OrderDetailView>()
             .Where(x => x.Status == "В обработке")
             .Get();
-        orders = response.Models;
+
+        var details = response.Models;
+
+        orders = GroupOrders(details);
     }
 
-    private async Task StartOrderAsync(OrderDetailView order)
+    private List<OrderWithPizzas> GroupOrders(List<OrderDetailView> details)
+    {
+        var groupedOrders = details
+            .GroupBy(d => d.OrderId)
+            .Select(g => new OrderWithPizzas
+                {
+                    OrderId = g.Key,
+                    ShortId = g.First().ShortId,
+                    OrderTime = g.First().OrderTime,
+                    Status = g.First().Status,
+                    Pizzas = g.Select(p => new PizzaInOrder
+                    {
+                        PizzaName = p.PizzaName,
+                        Ingredients = p.Ingredients ?? new List<string>(),
+                        Toppings = p.Toppings ?? new List<string>(),
+                        Comment = p.Comment,
+                        Quantity = p.Quantity
+                    }).ToList()
+                }).ToList();
+
+        return groupedOrders;
+    }
+
+    private async Task CompleteOrderAsync(OrderWithPizzas order)
     {
         await Supabase
             .From<Order>()
@@ -128,3 +175,4 @@
         timer?.Dispose();
     }
 }
+

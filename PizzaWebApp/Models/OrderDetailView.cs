@@ -31,4 +31,7 @@ public class OrderDetailView : BaseModel
 
     [Column("comment")]
     public string Comment { get; set; }
+
+    [Column("quantity")]
+    public int Quantity { get; set; }
 }

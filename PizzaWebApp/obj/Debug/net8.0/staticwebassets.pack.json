@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\bowser-sad.png",
+      "PackagePath": "staticwebassets\\images\\bowser-sad.png"
+    },
+    {
       "Id": "D:\\source\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\wwwroot\\images\\e76f272fb8c2fb73d5bb9dfe35cca14d.png",
       "PackagePath": "staticwebassets\\images\\e76f272fb8c2fb73d5bb9dfe35cca14d.png"
     },

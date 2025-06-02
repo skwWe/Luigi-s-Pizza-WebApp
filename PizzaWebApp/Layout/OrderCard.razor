@@ -1,6 +1,7 @@
 ﻿@using PizzaWebApp.Models
 @inject Supabase.Client Supabase
 @inject NavigationManager NavigationManager
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
 <link href="css/main.css" rel="stylesheet" />
@@ -9,7 +10,7 @@
     <div class="pizza-image"></div>
     <div class="order-content">
         <h3>ЗАКАЗ @Order.ShortId</h3>
-        <p>Пицца @Order.PizzaName</p>
+        <p>Пицца @Order.PizzaName × @Order.Quantity шт.</p>
         <ul>
             <li><strong>Состав:</strong></li>
             @foreach (var ing in Order.Ingredients)
@@ -17,7 +18,7 @@
                 <li class="subitem">• @ing</li>
             }
 
-            @if (Order.Toppings.Any())
+            @if (Order.Toppings is { Count: > 0 })
             {
                 <li><strong>Дополнительно:</strong></li>
                 @foreach (var top in Order.Toppings)

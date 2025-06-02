@@ -129,7 +129,7 @@ html, body {
     overflow: hidden;
     z-index: 0;
     margin-left: 0.5rem;
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
     .order-card::before {
@@ -258,3 +258,17 @@ html, body {
     cursor: pointer;
     z-index: 1001; /* Чтобы была поверх сайдбара */
 }
+
+.status-image {
+    width: 200px; /* или нужный размер */
+    height: auto; /* сохраняет пропорции */
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.85;
+}
+
+
+
+
