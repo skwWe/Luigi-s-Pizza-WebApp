@@ -10,55 +10,30 @@ namespace PizzaWebApp.Services
     {
         private readonly Supabase.Client _supabase;
         private const string MenuBucketName = "menu-images";
-
-        public MenuService(Supabase.Client supabase)
+        private readonly ISupabaseMenuWrapper _wrapper;
+        public MenuService(ISupabaseMenuWrapper wrapper)
         {
-            _supabase = supabase;
+            _wrapper = wrapper;
         }
+
+
 
         public async Task<List<MenuItem>> GetBurgersAsync()
         {
             try
             {
-                var response = await _supabase
-                    .From<MenuItem>()
-                    .Select("*")
-                    .Get();
-
-                return response.Models;
+                return await _wrapper.GetMenuItems();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading burgers: {ex.Message}");
-                return new List<MenuItem>();
+                return new List<MenuItem>(); // Возвращаем пустой список при ошибке
             }
         }
 
         public async Task<string> GetImageUrl(string imagePath)
         {
-            if (string.IsNullOrEmpty(imagePath))
-                return "/images/pizza-placeholder.png";
-
-            // Если URL уже полный (например, из корзины)
-            if (imagePath.StartsWith("http"))
-                return imagePath;
-
-            try
-            {
-                // Убедитесь, что imagePath не начинается с /
-                if (imagePath.StartsWith("/"))
-                    imagePath = imagePath.Substring(1);
-
-                // Используйте правильное имя бакета (должно совпадать в MenuService и CartService)
-                return await _supabase.Storage
-                    .From("avatars") // Замените на ваше имя бакета
-                    .CreateSignedUrl(imagePath, 3600); // URL действителен 1 час
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error generating image URL: {ex.Message}");
-                return "/images/pizza-placeholder.png";
-            }
+            return await _wrapper.GetImageUrl(imagePath);
         }
     }
     }

@@ -2,6 +2,7 @@ wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map
 wwwroot\css\Corzina.css
+wwwroot\css\DetailOrder.css
 wwwroot\css\main.css
 wwwroot\css\Profil.css
 wwwroot\favicon.png

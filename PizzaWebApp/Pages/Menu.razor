@@ -88,7 +88,7 @@
                             {
                                 <div class="footer-content">
                                     <span class="burger-price">@burger.Price.ToString("0") ₽</span>
-                                    <button class="add-btn" @onclick="async () => await AddToCart(burger)">
+                                    <button class="add-btn" @onclick="() => AddToCart(burger)">
                                         Добавить
                                     </button>
                                     <div class="empty-space"></div>
@@ -162,9 +162,9 @@
     {
         CartService.AddOrUpdateItem(item, change);
     }
-    private async Task AddToCart(MenuItem burger)
+    private void AddToCart(MenuItem burger) // Изменили с async Task на void
     {
-        await CartService.AddItem(burger);
+        CartService.AddItem(burger); // Убрали await
     }
 
     private void UpdateTime(object? state)

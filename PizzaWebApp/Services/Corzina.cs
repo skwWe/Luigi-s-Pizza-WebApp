@@ -3,20 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Supabase;
 
 namespace PizzaWebApp.Services
 {
     public class CartService
     {
-        private readonly Client _supabase;
+        private readonly ISupabaseCartWrapper _wrapper;
         public List<CartItem> Items { get; } = new();
         public event Action OnChange;
-        public CartService(Client supabase)
+        public Guid LastOrderId { get; set; }
+
+        public CartService(ISupabaseCartWrapper wrapper)
         {
-            _supabase = supabase;
+            _wrapper = wrapper;
         }
-        public Guid LastOrderId { get; set; } // Сохраняем ID последнего заказа
+
         public async Task AddItemWithImage(MenuItem item)
         {
             var existing = Items.FirstOrDefault(x => x.Item.Id == item.Id);
@@ -26,14 +27,13 @@ namespace PizzaWebApp.Services
             }
             else
             {
-                // Создаем копию с обновленным URL изображения
                 var itemCopy = new MenuItem
                 {
                     Id = item.Id,
                     Name = item.Name,
                     Description = item.Description,
                     Price = item.Price,
-                    ImageUrl = await GetImageUrl(item.ImageUrl)
+                    ImageUrl = await _wrapper.GetImageUrl(item.ImageUrl)
                 };
 
                 Items.Add(new CartItem { Item = itemCopy, Quantity = 1 });
@@ -41,7 +41,7 @@ namespace PizzaWebApp.Services
             NotifyStateChanged();
         }
 
-        public async Task AddItem(MenuItem item)
+        public void AddItem(MenuItem item)
         {
             var existing = Items.FirstOrDefault(x => x.Item.Id == item.Id);
             if (existing != null)
@@ -50,36 +50,11 @@ namespace PizzaWebApp.Services
             }
             else
             {
-                // Создаем полную копию элемента с изображением
-                var itemCopy = new MenuItem
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    Description = item.Description,
-                    Price = item.Price,
-                    ImageUrl = item.ImageUrl // Сохраняем оригинальный URL
-                };
-
-                Items.Add(new CartItem { Item = itemCopy, Quantity = 1 });
+                Items.Add(new CartItem { Item = item, Quantity = 1 });
             }
             NotifyStateChanged();
         }
-        private async Task<string> GetImageUrl(string imagePath)
-        {
-            if (string.IsNullOrEmpty(imagePath))
-                return string.Empty;
 
-            try
-            {
-                return await _supabase.Storage
-                    .From("avatars")
-                    .CreateSignedUrl(imagePath, 3600);
-            }
-            catch
-            {
-                return "/images/pizza-placeholder.png";
-            }
-        }
         public void AddOrUpdateItem(MenuItem item, int quantityChange = 1)
         {
             var existing = Items.FirstOrDefault(x => x.Item.Id == item.Id);
@@ -88,7 +63,6 @@ namespace PizzaWebApp.Services
             {
                 existing.Quantity += quantityChange;
 
-                // Удаляем если количество стало 0 или меньше
                 if (existing.Quantity <= 0)
                 {
                     Items.Remove(existing);
@@ -101,6 +75,7 @@ namespace PizzaWebApp.Services
 
             NotifyStateChanged();
         }
+
         public void RemoveItem(MenuItem item)
         {
             var existing = Items.FirstOrDefault(x => x.Item.Id == item.Id);
@@ -118,32 +93,24 @@ namespace PizzaWebApp.Services
         {
             try
             {
-                // 1. Берем текущее локальное время (как на компьютере)
-                var moscowTime = DateTime.UtcNow.AddHours(3); 
-
-               // 2. Создаем заказ
-               var order = new Order
+                var moscowTime = DateTime.UtcNow.AddHours(3);
+                var order = new Order
                 {
                     OrderId = Guid.NewGuid(),
                     CustomerName = customerName,
                     CustomerPhone = phone,
                     DeliveryAddress = address,
-                   OrderTime = moscowTime, // Сохраняем как есть
-                   Status = "В обработке",
-                   CreatedAt = moscowTime
-               };
+                    OrderTime = moscowTime,
+                    Status = "В обработке",
+                    CreatedAt = moscowTime
+                };
 
-                // 3. Логируем для проверки
-              
-
-                // 4. Отправляем в базу
-                var orderResponse = await _supabase.From<Order>().Insert(order);
+                var orderResponse = await _wrapper.CreateOrder(order);
                 var insertedOrder = orderResponse.Models.FirstOrDefault();
 
                 if (insertedOrder == null)
                     return (false, Guid.Empty, string.Empty);
 
-                // 5. Сохраняем позиции заказа
                 var orderItems = Items.Select(item => new OrderItem
                 {
                     ItemId = Guid.NewGuid(),
@@ -153,15 +120,12 @@ namespace PizzaWebApp.Services
                     Comment = item.Comment
                 }).ToList();
 
-                await _supabase.From<OrderItem>().Insert(orderItems);
+                await _wrapper.CreateOrderItems(orderItems);
 
-                // 6. Получаем ShortId заказа
-                var orderView = await _supabase.From<OrderDetailView>()
-                    .Where(x => x.OrderId == insertedOrder.OrderId)
-                    .Single();
+                var orderView = await _wrapper.GetOrderDetails(insertedOrder.OrderId);
 
-                // 7. Очищаем корзину
                 Clear();
+                LastOrderId = insertedOrder.OrderId;
 
                 return (true, insertedOrder.OrderId, orderView?.ShortId ?? string.Empty);
             }

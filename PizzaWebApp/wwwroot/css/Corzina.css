@@ -34,8 +34,8 @@ body {
 /* Герой секция с увеличенным изображением */
 .cart-hero {
     height: calc(var(--hero-height) * 1.15);
-    min-height: 600px;
-    max-height: 600px;
+    min-height: 400px;
+    max-height: 400px;
     position: relative;
     overflow: hidden;
     display: flex;

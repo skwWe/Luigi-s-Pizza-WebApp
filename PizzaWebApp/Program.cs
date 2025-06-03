@@ -43,9 +43,11 @@ builder.Services.AddScoped<AuthService>();
 
 // Program.cs
 builder.Services.AddScoped<ProfileService>(); // Добавьте эту строку
-builder.Services.AddScoped<MenuService>();
+// Добавляем в DI-контейнер
+builder.Services.AddSingleton<ISupabaseMenuWrapper, SupabaseMenuWrapper>();
+builder.Services.AddSingleton<MenuService>();
+builder.Services.AddScoped<ISupabaseCartWrapper, SupabaseCartWrapper>();
 builder.Services.AddScoped<CartService>();
-
 
 
 
