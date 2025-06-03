@@ -28,6 +28,8 @@
             </div>
 
             <button class="btn-register" @onclick="HandleAuthorization"><strong>Войти</strong></button>
+
+                <p class="login-link">Не зарегестрировались? <a href="/">Зарегистрироваться</a></p>
         </div>
     </div>
         <div class="right-panel">
@@ -52,7 +54,7 @@
             if (session.User != null)
             {
                 // Перенаправление на главную или нужную страницу
-                NavigationManager.NavigateTo("/Profil");
+                NavigationManager.NavigateTo("/main-now");
             }
             else
             {

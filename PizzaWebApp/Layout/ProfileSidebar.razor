@@ -1,0 +1,451 @@
+﻿@using PizzaWebApp.Models
+@using System.Text.RegularExpressions
+@using YourNamespace.Services
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components
+@inject ProfileService ProfileService
+@inject Supabase.Client SupabaseClient
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+  <link rel="stylesheet" href="css/Profil.css" />
+
+
+<div id="sidebar" class="sidebar @(IsOpen ? "open" : "")" @onclick:stopPropagation>
+    <div class="profile-info">
+        <div class="avatar-container">
+            @if (isAvatarLoading)
+            {
+                <div class="avatar-loading">
+                    <div class="spinner"></div>
+                    <span>Загрузка...</span>
+                </div>
+            }
+            else if (hasAvatar && !string.IsNullOrEmpty(AvatarUrl))
+            {
+                <label for="avatar-upload" class="avatar-clickable">
+                    <img src="@($"{AvatarUrl}?v={cacheBuster}")"
+                         class="profile-avatar"
+                         loading="lazy"
+                         onerror="this.onerror=null;this.src='/images/image 4.png';"
+                         style="@(isAvatarLoading ? "filter: brightness(0.5);" : "")" />
+                </label>
+            }
+            else
+            {
+                <label for="avatar-upload" class="avatar-clickable">
+                    <img src="/images/image 4.png"
+                         class="profile-avatar"
+                         style="@(isAvatarLoading ? "filter: brightness(0.5);" : "")" />
+                </label>
+            }
+
+            <InputFile id="avatar-upload"
+                       accept="image/*"
+                       OnChange="HandleFileUpload"
+                       style="display: none;" />
+
+            @if (!string.IsNullOrEmpty(avatarError))
+            {
+                <div class="avatar-error">@avatarError</div>
+            }
+        </div>
+        <div class="profile-text">
+            <h1>Привет, <span>@FirstName</span> <span>@LastName</span>!</h1>
+            <h6><span>@Email</span></h6>
+        </div>
+    </div>
+
+
+
+    <div class="menu">
+        <div class="menu-item">
+            <button id="favourites-link"
+                    @onclick="ToggleNameEdit"
+                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+                <span class="menu-icon">✏️</span>
+                <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingName ? "Отмена" : "Изменить имя")</span>
+                <span class="menu-arrow">›</span>
+            </button>
+
+            @if (IsEditingName)
+            {
+                <div class="edit-container"
+                     style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                    <input type="text"
+                           @bind="TempFirstName"
+                           @ref="nameInput"
+                           placeholder="Введите новое имя"
+                           style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
+
+                    <button @onclick="SaveName"
+                            style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
+                            title="Сохранить">
+                        &#10003;
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="menu">
+        <div class="menu-item">
+            <button id="favourites-link1"
+                    @onclick="ToggleLastNameEdit"
+                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+                <span class="menu-icon" style="margin-right: 8px;">📝</span> <!-- Иконка с отступом справа -->
+                <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingLastName ? "Отмена" : "Изменить фамилию")</span>
+                <span class="menu-arrow">›</span>
+            </button>
+
+            @if (IsEditingLastName)
+            {
+                <div class="edit-container"
+                     style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                    <input type="text"
+                           @bind="TempLastName"
+                           @ref="lastNameInput"
+                           placeholder="Введите новую фамилию"
+                           style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid #666; border-radius: 4px;" />
+
+                    <button @onclick="SaveLastName"
+                            style="padding: 6px 12px; font-size: 1rem; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;"
+                            title="Сохранить">
+                        &#10003;
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="menu">
+        <div class="menu-item">
+            <button id="favourites-link1"
+                    @onclick="ToggleEmailEdit"
+                    style="display: flex; align-items: center; width: 100%; background: none; border: none; padding: 0 8px; font: inherit; color: inherit; cursor: pointer;">
+                <span class="menu-icon" style="margin-right: 8px;">✉️</span> <!-- Иконка почты -->
+                <span class="menu-text" style="flex-grow: 1; text-align: left;">@(IsEditingEmail ? "Отмена" : "Изменить почту")</span>
+                <span class="menu-arrow">›</span>
+            </button>
+
+            @if (IsEditingEmail)
+            {
+                <div class="edit-container"
+                     style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="email"
+                               @bind="TempEmail"
+                               @oninput="ValidateEmail"
+                               @ref="EmailInput"
+                               placeholder="user@example.com"
+                               style="flex-grow: 1; padding: 6px; font-size: 1rem; border: 1px solid @(IsEmailValid ? "#666" : "red"); border-radius: 4px;" />
+
+                        <button @onclick="SaveEmail"
+                                disabled="@(!IsEmailValid)"
+                                style="padding: 6px 12px; font-size: 1rem; cursor: @(IsEmailValid ? "pointer" : "not-allowed"); background-color: @(IsEmailValid ? "#4CAF50" : "#cccccc"); color: white; border: none; border-radius: 4px;"
+                                title="@(IsEmailValid ? "Сохранить" : "Введите корректный email")">
+                            &#10003;
+                        </button>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(EmailValidationMessage))
+                    {
+                        <div style="color: red; font-size: 0.8rem; margin-top: -4px;">
+                            @EmailValidationMessage
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <div class="menu-divider"></div>
+
+    <!-- Загрузка фото -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">⏳</span> <!-- Или 🕒 -->
+        <span class="menu-text">Время активности</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <!-- Дни рождения -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">🎂</span> <!-- Или 🎁 -->
+        <span class="menu-text">Дни рождения</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <!-- Уведомления -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">🔔</span> <!-- Оставляем, идеально подходит -->
+        <span class="menu-text">Уведомления</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <!-- Платежные методы -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">💳</span> <!-- Или 💰 -->
+        <span class="menu-text">Платежные методы</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <div class="menu-divider"></div>
+
+    <!-- Язык интерфейса -->
+    <!-- Language Selector -->
+    <a href="#" class="menu-item">
+
+        <span class="menu-icon">🌐</span>
+        <span class="menu-text">Язык интерфейса</span>
+
+
+        <span class="menu-arrow">›</span>
+    </a>
+
+
+    <!-- Настройки безопасности -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">🔒</span> <!-- Или 🛡️ -->
+        <span class="menu-text">Настройки безопасности</span>
+        <span class="menu-arrow">›</span>
+    </a>
+
+    <div class="menu-divider"></div>
+
+    <!-- Сообщения -->
+    <a href="#" class="menu-item">
+        <span class="menu-icon">✉️</span> <!-- Или 📩 -->
+        <span class="menu-text">Сообщения</span>
+        <span class="menu-arrow">›</span>
+    </a>
+</div>
+
+
+
+
+
+@code {
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public EventCallback<bool> IsOpenChanged { get; set; }
+
+    private string FirstName { get; set; } = "";
+    private string LastName { get; set; } = "";
+    private string Email { get; set; } = "";
+    private string AvatarUrl { get; set; }
+    private bool hasAvatar = false;
+    private string cacheBuster = Guid.NewGuid().ToString();
+    private string avatarError;
+    private bool isAvatarLoading = false;
+    private bool _isUploading = false;
+    // Добавляем переменные для редактирования имени
+    private bool IsEditingName { get; set; }
+    private string TempFirstName { get; set; }
+    private ElementReference nameInput;
+
+    // Добавляем переменные для редактирования фамилии
+    private bool IsEditingLastName { get; set; }
+    private string TempLastName { get; set; }
+    private ElementReference lastNameInput;
+
+    // Добавляем переменные для редактирования email
+    private bool IsEditingEmail { get; set; }
+    private string TempEmail { get; set; } = string.Empty;
+    private ElementReference EmailInput;
+    private bool IsEmailValid { get; set; }
+    private string EmailValidationMessage { get; set; } = string.Empty;
+
+    // Метод для переключения редактирования имени
+    private async Task ToggleNameEdit()
+    {
+        IsEditingName = !IsEditingName;
+        if (IsEditingName)
+        {
+            IsEditingLastName = false;
+            IsEditingEmail = false;
+            TempFirstName = FirstName;
+            await Task.Delay(50);
+            await nameInput.FocusAsync();
+        }
+    }
+
+    // Метод для сохранения имени
+    private async Task SaveName()
+    {
+        if (!string.IsNullOrWhiteSpace(TempFirstName))
+        {
+            FirstName = TempFirstName;
+            await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
+        }
+        IsEditingName = false;
+        StateHasChanged();
+    }
+
+    // Метод для переключения редактирования фамилии
+    private async Task ToggleLastNameEdit()
+    {
+        IsEditingLastName = !IsEditingLastName;
+        if (IsEditingLastName)
+        {
+            IsEditingName = false;
+            IsEditingEmail = false;
+            TempLastName = LastName;
+            await Task.Delay(50);
+            await lastNameInput.FocusAsync();
+        }
+    }
+
+    // Метод для сохранения фамилии
+    private async Task SaveLastName()
+    {
+        if (!string.IsNullOrWhiteSpace(TempLastName))
+        {
+            LastName = TempLastName;
+            await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
+        }
+        IsEditingLastName = false;
+        StateHasChanged();
+    }
+
+    // Метод для переключения редактирования email
+    private async Task ToggleEmailEdit()
+    {
+        IsEditingEmail = !IsEditingEmail;
+        if (IsEditingEmail)
+        {
+            IsEditingName = false;
+            IsEditingLastName = false;
+            TempEmail = Email;
+            IsEmailValid = true;
+            EmailValidationMessage = string.Empty;
+            await Task.Delay(50);
+            await EmailInput.FocusAsync();
+        }
+    }
+
+    // Метод для валидации email
+    private void ValidateEmail(ChangeEventArgs e)
+    {
+        TempEmail = e.Value?.ToString() ?? string.Empty;
+        IsEmailValid = Regex.IsMatch(TempEmail, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+
+        EmailValidationMessage = IsEmailValid
+            ? string.Empty
+            : "Введите корректный email (например: user@example.com)";
+    }
+
+    // Метод для сохранения email
+    private async Task SaveEmail()
+    {
+        if (IsEmailValid && !string.IsNullOrWhiteSpace(TempEmail))
+        {
+            Email = TempEmail;
+            await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
+            IsEditingEmail = false;
+            StateHasChanged();
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await LoadProfile();
+            await LoadAvatar();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Initialization error: {ex}");
+        }
+    }
+
+    private async Task LoadProfile()
+    {
+        var profile = await ProfileService.GetProfileAsync();
+        if (profile.HasValue)
+        {
+            FirstName = profile.Value.FirstName;
+            LastName = profile.Value.LastName;
+            Email = profile.Value.Email;
+        }
+    }
+
+    private async Task LoadAvatar()
+    {
+        try
+        {
+            isAvatarLoading = true;
+            StateHasChanged();
+
+            var (url, error) = await ProfileService.GetUserAvatarUrlAsync();
+            if (!string.IsNullOrEmpty(url))
+            {
+                AvatarUrl = $"{url}&v={DateTime.Now.Ticks}";
+                hasAvatar = true;
+            }
+            else
+            {
+                AvatarUrl = "/images/image 4.png";
+                hasAvatar = false;
+            }
+        }
+        catch
+        {
+            AvatarUrl = "/images/image 4.png";
+            hasAvatar = false;
+        }
+        finally
+        {
+            isAvatarLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task HandleFileUpload(InputFileChangeEventArgs e)
+    {
+        if (_isUploading) return;
+        _isUploading = true;
+        isAvatarLoading = true;
+        avatarError = null;
+
+        try
+        {
+            if (e.FileCount == 0 || e.File == null)
+            {
+                avatarError = "Файл не выбран";
+                return;
+            }
+
+            var file = e.File;
+            var validExtensions = new[] { ".jpg", ".jpeg", ".png" };
+            var fileExt = Path.GetExtension(file.Name).ToLower();
+
+            if (!validExtensions.Contains(fileExt))
+            {
+                avatarError = "Допустимы только JPG, JPEG и PNG";
+                return;
+            }
+
+            await using var stream = e.File.OpenReadStream(2 * 1024 * 1024);
+            var result = await ProfileService.UploadAvatar(stream, file.Name);
+
+            if (!string.IsNullOrEmpty(result.Error))
+            {
+                avatarError = result.Error;
+                return;
+            }
+
+            cacheBuster = Guid.NewGuid().ToString();
+            await LoadAvatar();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки: {ex}");
+            avatarError = "Ошибка при загрузке файла";
+        }
+        finally
+        {
+            isAvatarLoading = false;
+            _isUploading = false;
+            StateHasChanged();
+        }
+    }
+}

@@ -1,0 +1,63 @@
+﻿@using PizzaWebApp.Models
+@inject Supabase.Client Supabase
+@inject NavigationManager NavigationManager
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<link href="css/main.css" rel="stylesheet" />
+
+<div class="order-card">
+    <div class="pizza-image"></div>
+    <div class="order-content">
+        <h3>ЗАКАЗ @Order.ShortId</h3>
+        <p>Пицца @Order.PizzaName × @Order.Quantity шт.</p>
+        <ul>
+            <li><strong>Состав:</strong></li>
+            @foreach (var ing in Order.Ingredients)
+            {
+                <li class="subitem">• @ing</li>
+            }
+
+            @if (Order.Toppings is { Count: > 0 })
+            {
+                <li><strong>Дополнительно:</strong></li>
+                @foreach (var top in Order.Toppings)
+                {
+                    <li class="subitem">@top</li>
+                }
+            }
+        </ul>
+
+        @if (!string.IsNullOrWhiteSpace(Order.Comment))
+        {
+            <p><strong>Комментарий:</strong></p>
+            <p class="subitem">@Order.Comment</p>
+        }
+    </div>
+
+    <div class="order-time">
+        @Order.OrderTime.ToShortTimeString()
+    </div>
+
+    @if (ShowActionButton)
+    {
+        <div class="btn-container">
+            <button class="ready-btn" @onclick="OnActionClick">@ActionLabel</button>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public OrderDetailView Order { get; set; }
+    [Parameter] public bool ShowActionButton { get; set; }
+    [Parameter] public string ActionLabel { get; set; }
+    [Parameter] public EventCallback<OrderDetailView> OnAction { get; set; }
+
+    private async Task OnActionClick()
+    {
+        if (OnAction.HasDelegate)
+        {
+            await OnAction.InvokeAsync(Order);
+        }
+    }
+}
