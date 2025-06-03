@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1V67KX0LdAk=",
+  "dgSpecHash": "CX93bBuMr34=",
   "success": true,
-  "projectFilePath": "D:\\проверка5\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
+  "projectFilePath": "D:\\1\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nastya\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\Nastya\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
