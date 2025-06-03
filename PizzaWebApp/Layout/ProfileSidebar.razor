@@ -12,6 +12,7 @@
 
 
 <div id="sidebar" class="sidebar @(IsOpen ? "open" : "")" @onclick:stopPropagation>
+    <img class="back-arrow" src="/images/стрелочканазад.png" @onclick="ToggleSidebar" />
     <div class="profile-info">
         <div class="avatar-container">
             @if (isAvatarLoading)
@@ -291,6 +292,12 @@
             await Task.Delay(50);
             await lastNameInput.FocusAsync();
         }
+    }
+
+    private async Task ToggleSidebar()
+    {
+        IsOpen = !IsOpen;
+        await IsOpenChanged.InvokeAsync(IsOpen);
     }
 
     // Метод для сохранения фамилии
