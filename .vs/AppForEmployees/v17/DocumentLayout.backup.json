@@ -133,8 +133,7 @@
               "RelativeToolTip": "UnitTestProject\\UnitTest1.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAswGAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T12:03:17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T12:03:17Z"
             },
             {
               "$type": "Document",
@@ -154,9 +153,9 @@
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "PizzaWebApp\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs*",
-              "RelativeToolTip": "PizzaWebApp\\Services\\AuthService.cs*",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAABCAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs",
+              "RelativeToolTip": "PizzaWebApp\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-30T17:50:54.441Z",
               "EditorCaption": ""
