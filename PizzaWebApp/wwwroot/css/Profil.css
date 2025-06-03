@@ -73,24 +73,38 @@
 
 .sidebar {
     position: fixed;
-    top: 60px; /* 60 + 64, чтобы не перекрывать хедер и топ-бар */
-    bottom: 80px; /* чтобы не доходил до футера (около 64px + запас) */
+    top: 0;
     right: -500px;
     width: 500px;
-    background-color: #fff;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    background: #fff;
     overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
     z-index: 1000;
     font-family: Arial, sans-serif;
-    padding: 0 20px;
-    box-sizing: border-box;
 }
 
 
 
     .sidebar.open {
         right: 0;
+    }
+
+.back-arrow {
+    position: absolute;
+    left: 20px;
+    top: 5%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.2s ease;
+}
+
+    .back-arrow:hover {
+        transform: translateY(-50%) scale(1.1);
     }
 
 .profile-info {
