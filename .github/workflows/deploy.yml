@@ -24,8 +24,8 @@ jobs:
         dotnet-version: '9.0.x'
         include-prerelease: true
 
-    - name: Publish Blazor WebAssembly App
-      run: dotnet publish -c Release -o release
+    - name: Publish Blazor WebAssembly App (self-contained)
+      run: dotnet publish Luigi-s-Pizza-WebApp.csproj -c Release -o release --runtime browser-wasm --self-contained true
 
     - name: Add .nojekyll
       run: touch release/wwwroot/.nojekyll
@@ -36,3 +36,21 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: release/wwwroot
+
+  verify-deployment:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Wait for GitHub Pages to propagate
+      run: sleep 30
+
+    - name: Check if site is live
+      run: |
+        curl -sSf https://skwwe.github.io/Luigi-s-Pizza-WebApp/ > /dev/null
+        echo "✅ Main page loaded successfully."
+
+    - name: Check if dotnet.native.wasm is accessible
+      run: |
+        curl -sSf https://skwwe.github.io/Luigi-s-Pizza-WebApp/_framework/dotnet.native.wasm > /dev/null
+        echo "✅ dotnet.native.wasm loaded successfully."
