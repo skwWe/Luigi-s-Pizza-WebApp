@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "PizzaWebApp",
   "resources": {
-    "hash": "sha256-QXK+siNbGuL8poPmsHcvTpBDmDbWxIkfZy63jBJ+INQ=",
+    "hash": "sha256-mzfJpZZp6FZjScjyz9kAPcEaw6rK6khpEx0zRJLqq74=",
     "jsModuleNative": {
       "dotnet.native.8.0.16.khcj4p6y0x.js": "sha256-RiGT44TFZmHOY+Oqvb8o8r+BJVWex6+dPxFxrOiWvFY="
     },
@@ -115,7 +115,7 @@
       "netstandard.wasm": "sha256-wXisAV3UEE0JXi+VXXz86nNR3eXNnYSy7x4OFj5NjhA=",
       "Newtonsoft.Json.Bson.wasm": "sha256-VxfTY/Ckiz5BNvQbcB31OYXhY4HGHJtODt5rRbjDIK0=",
       "Newtonsoft.Json.wasm": "sha256-GlXMWKvDs45M2pACoR3Y4Qh8mcrOZGljqmvJY+6JZ5s=",
-      "PizzaWebApp.wasm": "sha256-k1PlERGMQ3gdy96+iEnmo7Ne1e0uM5/iuvZqTgELoJs=",
+      "PizzaWebApp.wasm": "sha256-chzl1HoQwZ3u8DdldOM/LV9FyqW+zb4ZkpvoEmoqygE=",
       "Std.UriTemplate.wasm": "sha256-8bbR8zQ9B9Hj2q+4vSWognkOCQ2n6zHGCX2sg1yCZHY=",
       "Supabase.Core.wasm": "sha256-jUEh1mM6mkGdyQrEwowAbpQ8R148PZIAUIOXn0mrgIA=",
       "Supabase.Functions.wasm": "sha256-i3baKTpUA4voBHgpG1KCEXhOQom7BsRz3N4FCywsZ6k=",
