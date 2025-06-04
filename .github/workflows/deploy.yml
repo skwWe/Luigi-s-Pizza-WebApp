@@ -25,7 +25,7 @@ jobs:
         include-prerelease: true
 
     - name: Publish Blazor WebAssembly App (self-contained)
-      run: dotnet publish Luigi-s-Pizza-WebApp.csproj -c Release -o release --runtime browser-wasm --self-contained true
+      run: dotnet publish PizzaWebApp.csproj -c Release -o release --runtime browser-wasm --self-contained true
 
     - name: Add .nojekyll
       run: touch release/wwwroot/.nojekyll
