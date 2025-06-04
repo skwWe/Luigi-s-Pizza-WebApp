@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{32406D97-2CB3-4FA0-A711-3586A610255A}|UnitTestProject\\UnitTestProject.csproj|c:\\users\\dom\\source\\repos\\luigi-s-pizza-webapp\\unittestproject\\menuunittest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32406D97-2CB3-4FA0-A711-3586A610255A}|UnitTestProject\\UnitTestProject.csproj|solutionrelative:unittestproject\\menuunittest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F78464B5-0D8D-4D13-AF58-627A6F24A47B}|PizzaWebApp\\PizzaWebApp.csproj|c:\\users\\dom\\source\\repos\\luigi-s-pizza-webapp\\pizzawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F78464B5-0D8D-4D13-AF58-627A6F24A47B}|PizzaWebApp\\PizzaWebApp.csproj|solutionrelative:pizzawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{32406D97-2CB3-4FA0-A711-3586A610255A}|UnitTestProject\\UnitTestProject.csproj|c:\\users\\dom\\source\\repos\\luigi-s-pizza-webapp\\unittestproject\\cartservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32406D97-2CB3-4FA0-A711-3586A610255A}|UnitTestProject\\UnitTestProject.csproj|solutionrelative:unittestproject\\cartservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32406D97-2CB3-4FA0-A711-3586A610255A}|UnitTestProject\\UnitTestProject.csproj|c:\\users\\dom\\source\\repos\\luigi-s-pizza-webapp\\unittestproject\\menuunittest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32406D97-2CB3-4FA0-A711-3586A610255A}|UnitTestProject\\UnitTestProject.csproj|solutionrelative:unittestproject\\menuunittest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,19 +66,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LoginPage.razor",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Pages\\LoginPage.razor",
               "RelativeDocumentMoniker": "PizzaWebApp\\Pages\\LoginPage.razor",
               "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Pages\\LoginPage.razor",
               "RelativeToolTip": "PizzaWebApp\\Pages\\LoginPage.razor",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAFEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAIBJwFEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-04T08:29:50.897Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Program.cs",
               "RelativeDocumentMoniker": "PizzaWebApp\\Program.cs",
@@ -86,24 +86,23 @@
               "RelativeToolTip": "PizzaWebApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T05:56:52.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-04T05:56:52.386Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "RegisterPage.razor",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Pages\\RegisterPage.razor",
               "RelativeDocumentMoniker": "PizzaWebApp\\Pages\\RegisterPage.razor",
               "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Pages\\RegisterPage.razor",
               "RelativeToolTip": "PizzaWebApp\\Pages\\RegisterPage.razor",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAIBJwIUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-04T05:34:37.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PrifilService.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\PrifilService.cs",
               "RelativeDocumentMoniker": "PizzaWebApp\\Services\\PrifilService.cs",
@@ -115,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\OrderService.cs",
               "RelativeDocumentMoniker": "PizzaWebApp\\Services\\OrderService.cs",
@@ -127,19 +126,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "PizzaWebApp\\Services\\AuthService.cs",
               "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\AuthService.cs",
               "RelativeToolTip": "PizzaWebApp\\Services\\AuthService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T05:22:05.223Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ISupabaseAuthWrapper.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Services\\ISupabaseAuthWrapper.cs",
               "RelativeDocumentMoniker": "PizzaWebApp\\Services\\ISupabaseAuthWrapper.cs",
@@ -151,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ProfileSidebar.razor",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Layout\\ProfileSidebar.razor",
               "RelativeDocumentMoniker": "PizzaWebApp\\Layout\\ProfileSidebar.razor",
@@ -163,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Profil.razor",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\Pages\\Profil.razor",
               "RelativeDocumentMoniker": "PizzaWebApp\\Pages\\Profil.razor",
@@ -175,40 +174,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "CartServiceTests.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\CartServiceTests.cs",
               "RelativeDocumentMoniker": "UnitTestProject\\CartServiceTests.cs",
               "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\CartServiceTests.cs",
               "RelativeToolTip": "UnitTestProject\\CartServiceTests.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T05:03:16.31Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthorizationUnitTests.cs",
-              "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\AuthorizationUnitTests.cs",
-              "RelativeDocumentMoniker": "UnitTestProject\\AuthorizationUnitTests.cs",
-              "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\AuthorizationUnitTests.cs",
-              "RelativeToolTip": "UnitTestProject\\AuthorizationUnitTests.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wBgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T05:02:55.563Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "MenuUnitTest.cs",
               "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\MenuUnitTest.cs",
               "RelativeDocumentMoniker": "UnitTestProject\\MenuUnitTest.cs",
               "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\MenuUnitTest.cs",
               "RelativeToolTip": "UnitTestProject\\MenuUnitTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T05:02:54.141Z"
+              "WhenOpened": "2025-06-04T05:02:54.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthorizationUnitTests.cs",
+              "DocumentMoniker": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\AuthorizationUnitTests.cs",
+              "RelativeDocumentMoniker": "UnitTestProject\\AuthorizationUnitTests.cs",
+              "ToolTip": "C:\\Users\\Dom\\source\\repos\\Luigi-s-Pizza-WebApp\\UnitTestProject\\AuthorizationUnitTests.cs",
+              "RelativeToolTip": "UnitTestProject\\AuthorizationUnitTests.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T05:02:55.563Z"
             }
           ]
         }
