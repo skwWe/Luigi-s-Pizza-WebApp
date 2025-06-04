@@ -10780,9 +10780,6 @@ C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\comp
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\tdxswcumss-lfu7j35m59.gz
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\p1bj59h7de-oyz0vx2fzb.gz
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\8hscvnw1xu-sd9zfm5n0z.gz
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-7rexpkju8u.gz
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-b8p5hd8k51.gz
-C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-uyzuzxpbw8.gz
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\staticwebassets.build.endpoints.json
@@ -13122,3 +13119,6 @@ D:\проект8\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\ref\PizzaWebA
 D:\проект8\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-q4wkke1zge.gz
 D:\проект8\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-x3xs3s7udd.gz
 D:\проект8\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-vnx84ui2xk.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\z3zk27namj-7rfrhgo0hm.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\0v5eurzg0b-ih56lqtjih.gz
+C:\Users\Dom\source\repos\Luigi-s-Pizza-WebApp\PizzaWebApp\obj\Debug\net8.0\compressed\xrz8zdxb1x-vk27ocijze.gz

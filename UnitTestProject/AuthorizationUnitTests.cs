@@ -9,12 +9,12 @@ using SupabaseUser = Supabase.Gotrue.User;
 namespace AuthServiceTool.Tests
 {
     [TestClass]
-    public class AuthServiceTests
+    public class AuthServiceTest
     {
         private readonly Mock<ISupabaseAuthWrapper> _authWrapperMock;
         private readonly AuthService _authService;
 
-        public AuthServiceTests()
+        public AuthServiceTest()
         {
             _authWrapperMock = new Mock<ISupabaseAuthWrapper>();
             _authService = new AuthService(_authWrapperMock.Object);
