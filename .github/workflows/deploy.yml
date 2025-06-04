@@ -3,7 +3,7 @@ name: Deploy Blazor WebAssembly to GitHub Pages
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
   build-and-deploy:
@@ -13,14 +13,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'  
     - name: Setup Git identity
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+    - name: Setup .NET 9 (preview)
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+        include-prerelease: true
+
     - name: Publish Blazor WebAssembly App
       run: dotnet publish -c Release -o release
 
