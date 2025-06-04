@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj": {}
+    "C:\\Users\\КузнецовСС\\source\\repos\\Luigi-s-Pizza-WebApp\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj": {}
   },
   "projects": {
-    "D:\\1\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj": {
+    "C:\\Users\\КузнецовСС\\source\\repos\\Luigi-s-Pizza-WebApp\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\КузнецовСС\\source\\repos\\Luigi-s-Pizza-WebApp\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
         "projectName": "PizzaWebApp",
-        "projectPath": "D:\\1\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
-        "packagesPath": "C:\\Users\\Nastya\\.nuget\\packages\\",
-        "outputPath": "D:\\1\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\",
+        "projectPath": "C:\\Users\\КузнецовСС\\source\\repos\\Luigi-s-Pizza-WebApp\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\PizzaWebApp.csproj",
+        "packagesPath": "C:\\Users\\КузнецовСС\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\КузнецовСС\\source\\repos\\Luigi-s-Pizza-WebApp\\Luigi-s-Pizza-WebApp\\PizzaWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nastya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\КузнецовСС\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,8 +44,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -79,13 +78,13 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.11, )",
+              "version": "[8.0.8, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.0, )",
+              "version": "[8.0.8, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Test.Sdk": {
@@ -99,6 +98,10 @@
             "Supabase": {
               "target": "Package",
               "version": "[1.1.1, )"
+            },
+            "Supabase.Gotrue": {
+              "target": "Package",
+              "version": "[6.0.3, )"
             }
           },
           "imports": [
@@ -112,12 +115,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

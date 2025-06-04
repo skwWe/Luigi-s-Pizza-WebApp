@@ -25,6 +25,7 @@ builder.Services.AddSingleton<Client>(sp =>
 
     var client = new Supabase.Client(supabaseUrl, supabaseKey, new Supabase.SupabaseOptions
     {
+        AutoRefreshToken = true,
         AutoConnectRealtime = false
     });
 
@@ -41,11 +42,12 @@ builder.Services.AddScoped(sp => new HttpClient
 // Регистрация AuthService с внедрением Supabase клиента
 builder.Services.AddScoped<AuthService>();
 
-// Program.cs
-builder.Services.AddScoped<ProfileService>(); // Добавьте эту строку
-// Добавляем в DI-контейнер
+// ProfileService для работы с профилями пользователей
+builder.Services.AddScoped<ProfileService>();
+// MenuService для работы с меню (данные из Supabase)
 builder.Services.AddSingleton<ISupabaseMenuWrapper, SupabaseMenuWrapper>();
 builder.Services.AddSingleton<MenuService>();
+// CartService для работы с корзиной
 builder.Services.AddScoped<ISupabaseCartWrapper, SupabaseCartWrapper>();
 builder.Services.AddScoped<CartService>();
 

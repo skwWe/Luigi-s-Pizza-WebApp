@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group">
-                <label>Подтвердить пароль</label>
+                <label>Подтвердите пароль</label>
                 <input type="password" class="input" placeholder="Подтвердите пароль" @bind="registerModel.ConfirmPassword" />
                 <ValidationMessage For="@(() => registerModel.ConfirmPassword)" />
             </div>
@@ -55,7 +55,7 @@
                 <ValidationMessage For="@(() => registerModel.Age)" />
             </div>
 
-            <button class="btn-register" @onclick="HandleRegistration"><strong>Зарегистрироваться</strong></button>
+            <button type ="submit" class="btn-register" @onclick="HandleRegistration"><strong>Зарегистрироваться</strong></button>
 
             <p class="login-link">Есть аккаунт? <a href="/login">Войти</a></p>
 
@@ -110,6 +110,10 @@
                 {
                     errorMessage = "Пароль должен содержать минимум 6 символов.";
                     return;
+                }
+                if (registerModel.Age == 0)
+                {
+                    errorMessage = "Возраст должен быть больше 0";
                 }
             }
             else

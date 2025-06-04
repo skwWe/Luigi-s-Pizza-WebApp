@@ -1,25 +1,29 @@
 ﻿using Microsoft.JSInterop;
 using PizzaWebApp.Models;
 using Supabase;
+using Supabase.Gotrue;
+using Supabase.Gotrue.Interfaces;
+using System.Text.Json; 
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+using static Supabase.Gotrue.Constants;
 namespace YourNamespace.Services
 {
     public class ProfileService
     {
         private readonly Supabase.Client _supabase;
+
         private const string AvatarBucketName = "avatars"; // Название бакета в Supabase Storage
 
         public ProfileService(Supabase.Client supabase)
         {
             _supabase = supabase;
-
         }
 
-        // Модель профиля
 
 
         // Метод получения профиля
