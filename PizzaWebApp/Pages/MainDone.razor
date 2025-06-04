@@ -1,7 +1,8 @@
 ﻿@page "/main-done"
 @using PizzaWebApp.Models
+@using PizzaWebApp.Services
 @inject NavigationManager Navigation
-@inject Supabase.Client Supabase
+@inject ISupabaseWrapper SupabaseWrapper
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
@@ -59,13 +60,14 @@
                                     <div class="pizza-item">
                                         <p>@pizza.PizzaName x(@pizza.Quantity)</p>
                                         <p><b>Состав:</b> @string.Join(", ", pizza.Ingredients)</p>
-                                        @if (pizza.Toppings?.Count > 0)
+                                        @if (pizza.Toppings != null && pizza.Toppings.Any(t => !string.IsNullOrWhiteSpace(t)))
                                         {
-                                            <p><b>Допы:</b> @string.Join(", ", pizza.Toppings)</p>
+                                            <p><b>Допы:</b> @string.Join(", ", pizza.Toppings.Where(t => !string.IsNullOrWhiteSpace(t)))</p>
                                         }
+
                                         @if (!string.IsNullOrWhiteSpace(pizza.Comment))
                                         {
-                                            <p><b>Комментарий:</b> <i>@pizza.Comment</i></p>
+                                            <p class="order-comment"><b>Комментарий:</b> <i>@pizza.Comment</i></p>
                                         }
                                         <hr />
                                     </div>
@@ -107,7 +109,7 @@
         isProfileSidebarOpen = false;
     }
 
-    private List<OrderWithPizzas> orders;
+    public List<OrderWithPizzas> orders;
 
     private DateTime currentTime = DateTime.Now;
     private Timer? timer;
@@ -119,15 +121,9 @@
         timer = new Timer(UpdateTime, null, 0, 1000);
     }
 
-    private async Task LoadOrdersAsync()
+    public async Task LoadOrdersAsync()
     {
-        var response = await Supabase
-            .From<OrderDetailView>()
-            .Where(x => x.Status == "Готово")
-            .Get();
-
-        var details = response.Models;
-
+        var details = await SupabaseWrapper.GetOrdersWithStatusAsync("Готово");
         orders = GroupOrders(details);
     }
 

@@ -24,11 +24,11 @@ namespace AuthServiceTool
                 throw new ArgumentNullException(nameof(password));
             try
             {
-                return await _authWrapper.SignUp(email, password); // Регистрация в Supabase
+                return await _authWrapper.SignUp(email, password);
             }
             catch
             {
-                // Повторная попытка при ошибке
+                // Retry once
                 return await _authWrapper.SignUp(email, password);
             }
         }

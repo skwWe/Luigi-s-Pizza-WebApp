@@ -4,20 +4,18 @@ using AuthServiceTool;
 using PizzaWebApp;
 
 using Supabase;
-using YourNamespace.Services;
+using PizzaWebApp.Services;
 using Microsoft.JSInterop;
 using Microsoft.Extensions.Hosting;
 using PizzaWebApp.Models;
-using PizzaWebApp.Services;
+using YourNamespace.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-// Настройка HttpClient по умолчанию
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-// Настройка Supabase
 builder.Services.AddSingleton<Client>(sp =>
 {
     var supabaseUrl = "https://qfpyxrvpedzwdtmifthl.supabase.co";
@@ -25,7 +23,6 @@ builder.Services.AddSingleton<Client>(sp =>
 
     var client = new Supabase.Client(supabaseUrl, supabaseKey, new Supabase.SupabaseOptions
     {
-        AutoRefreshToken = true,
         AutoConnectRealtime = false
     });
 
@@ -33,27 +30,18 @@ builder.Services.AddSingleton<Client>(sp =>
 
     return client;
 });
+
 builder.Services.AddScoped(sp => new HttpClient
 {
     Timeout = TimeSpan.FromSeconds(30)
 });
 
-
-// Регистрация AuthService с внедрением Supabase клиента
 builder.Services.AddScoped<AuthService>();
-
-// ProfileService для работы с профилями пользователей
 builder.Services.AddScoped<ProfileService>();
-// MenuService для работы с меню (данные из Supabase)
 builder.Services.AddSingleton<ISupabaseMenuWrapper, SupabaseMenuWrapper>();
 builder.Services.AddSingleton<MenuService>();
-// CartService для работы с корзиной
 builder.Services.AddScoped<ISupabaseCartWrapper, SupabaseCartWrapper>();
 builder.Services.AddScoped<CartService>();
-
-
+builder.Services.AddSingleton<ISupabaseWrapper, SupabaseWrapper>();
 
 await builder.Build().RunAsync();
-
-
-
