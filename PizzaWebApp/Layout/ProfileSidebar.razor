@@ -254,6 +254,8 @@
     private bool IsEmailValid { get; set; }
     private string EmailValidationMessage { get; set; } = string.Empty;
 
+
+
     // Метод для переключения редактирования имени
     private async Task ToggleNameEdit()
     {
@@ -340,16 +342,16 @@
     }
 
     // Метод для сохранения email
-    private async Task SaveEmail()
-    {
-        if (IsEmailValid && !string.IsNullOrWhiteSpace(TempEmail))
-        {
-            Email = TempEmail;
-            await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
-            IsEditingEmail = false;
-            StateHasChanged();
-        }
-    }
+    // private async Task SaveEmail()
+    // {
+    //     if (IsEmailValid && !string.IsNullOrWhiteSpace(TempEmail))
+    //     {
+    //         Email = TempEmail;
+    //         await ProfileService.UpdateProfileAsync(FirstName, LastName, Email);
+    //         IsEditingEmail = false;
+    //         StateHasChanged();
+    //     }
+    // }
 
     protected override async Task OnInitializedAsync()
     {
@@ -453,6 +455,33 @@
             isAvatarLoading = false;
             _isUploading = false;
             StateHasChanged();
+        }
+    }
+
+
+
+    private async Task SaveEmail()
+    {
+        if (IsEmailValid && !string.IsNullOrWhiteSpace(TempEmail))
+        {
+            try
+            {
+                await ProfileService.UpdateProfileAsync(FirstName, LastName, TempEmail);
+                Email = TempEmail;
+                IsEditingEmail = false;
+                StateHasChanged();
+
+                // Показать уведомление об успехе
+                await JSRuntime.InvokeVoidAsync("alert", "Email успешно обновлен!");
+            }
+            catch (Supabase.Gotrue.Exceptions.GotrueException ex) when (ex.Message.Contains("email_address_invalid"))
+            {
+                EmailValidationMessage = "Supabase отклонил этот email. Пожалуйста, используйте другой адрес.";
+            }
+            catch (Exception ex)
+            {
+                EmailValidationMessage = $"Ошибка: {ex.Message}";
+            }
         }
     }
 }

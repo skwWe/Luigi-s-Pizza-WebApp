@@ -34,7 +34,7 @@
                     <span class="detail-value status-badge new">@order.Status</span>
                 </div>
                 <div class="detail-item">
-                    <span class="detail-label">Время:</span>
+                    <span class="detail-label">Дата и время:</span>
                     <span class="detail-value">@FormatMoscowTime(order.OrderTime)</span>
                 </div>
                 <div class="detail-item">
@@ -131,16 +131,16 @@
             {
                 var moscowZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
                 var moscowTime = TimeZoneInfo.ConvertTimeFromUtc(dateTime, moscowZone);
-                return moscowTime.ToString("HH:mm", CultureInfo.InvariantCulture);
+                return moscowTime.ToString("dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture);
             }
 
             // Если время уже локальное или не указано
-            return dateTime.ToString("HH:mm");
+            return dateTime.ToString("dd.MM.yyyy HH:mm");
         }
         catch
         {
             // Резервный вариант
-            return dateTime.AddHours(3).ToString("HH:mm");
+            return dateTime.AddHours(3).ToString("dd.MM.yyyy HH:mm");
         }
     }
 

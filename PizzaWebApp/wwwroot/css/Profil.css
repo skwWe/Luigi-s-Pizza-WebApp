@@ -377,8 +377,8 @@
 
 
 
-/* Основные стили */
-html, body {
+
+/*html, body {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
@@ -399,7 +399,7 @@ html, body {
     font-weight: 700;
 }
 
-/* Сетка карточек */
+ Сетка карточек 
 .burgers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -407,7 +407,7 @@ html, body {
     padding: 20px;
 }
 
-/* Карточка бургера */
+ Карточка бургера 
 .burger-card {
     background: white;
     border-radius: 15px;
@@ -421,10 +421,10 @@ html, body {
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
-/* Контейнер изображения (увеличенный) */
+
 .burger-image-container {
     width: 100%;
-    height: 380px; /* Увеличенная высота */
+    height: 380px;  Увеличенная высота 
     background: #f8f8f8;
     display: flex;
     align-items: center;
@@ -449,7 +449,7 @@ html, body {
     color: #999;
 }
 
-/* Контент карточки */
+ Контент карточки 
 .burger-content {
     padding: 25px;
 }
@@ -468,7 +468,7 @@ html, body {
     line-height: 1.6;
 }
 
-/* Стили для счетчика */
+
 .burger-footer {
     display: flex;
     justify-content: space-between;
@@ -524,7 +524,7 @@ html, body {
     font-weight: 600;
 }
 
-/* Адаптация */
+
 @media (max-width: 1400px) {
     .burgers-grid {
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -566,4 +566,4 @@ html, body {
     font-size: 1.8rem;
     margin: 50px 0;
     color: #666;
-}
+}*/

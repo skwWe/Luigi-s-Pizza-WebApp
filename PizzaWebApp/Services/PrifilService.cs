@@ -6,6 +6,8 @@ using Supabase.Postgrest.Models;
 using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
 using System.IO;
 using System.Threading.Tasks;
+using Supabase.Gotrue;
+using System.Text.RegularExpressions;
 namespace YourNamespace.Services
 {
     public class ProfileService
@@ -25,6 +27,7 @@ namespace YourNamespace.Services
         // Метод получения профиля
         public async Task<(string FirstName, string LastName, string Email)?> GetProfileAsync()
         {
+            // Используем CurrentUser вместо GetUser() для получения данных без JWT
             var user = _supabase.Auth.CurrentUser;
             if (user == null) return null;
 
@@ -44,43 +47,77 @@ namespace YourNamespace.Services
                 return null;
             }
         }
-
-        public async Task UpdateProfileAsync(string firstName, string lastName, string Email)
+        private bool IsValidEmail(string email)
         {
             try
             {
-                var user = _supabase.Auth.CurrentUser;
-                if (user == null)
-                {
-                    Console.WriteLine("User not authenticated");
-                    return;
-                }
+                // Более гибкая проверка email
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
+        public async Task UpdateProfileAsync(string firstName, string lastName, string email)
+        {
+            if (!IsValidEmail(email))
+                throw new Exception("Укажите корректный email");
 
-                var result = await _supabase
+            try
+            {
+                var session = _supabase.Auth.CurrentSession;
+                if (session == null) throw new Exception("User not authenticated");
+
+                // 1. Сначала обновляем public.profiles
+                var updateResult = await _supabase
                     .From<profiles>()
-                    .Where(x => x.UserId == user.Id)
+                    .Where(x => x.UserId == session.User.Id)
                     .Set(x => x.FirstName, firstName)
                     .Set(x => x.LastName, lastName)
-                    .Set(x => x.Email, Email)
+                    .Set(x => x.Email, email)
                     .Update();
 
-                if (result.ResponseMessage.IsSuccessStatusCode)
+                if (!updateResult.ResponseMessage.IsSuccessStatusCode)
+                    throw new Exception($"Profile update failed: {updateResult.ResponseMessage.ReasonPhrase}");
+
+                // 2. Пытаемся обновить auth.users только если email изменился
+                if (!string.Equals(session.User.Email, email, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine("Profile updated successfully");
+                    try
+                    {
+                        var updatedUser = await _supabase.Auth.Update(new UserAttributes
+                        {
+                            Data = new Dictionary<string, object>
+                    {
+                        { "first_name", firstName },
+                        { "last_name", lastName }
+                    }
+                        });
+
+                        // Если email нужно обновить, делаем это отдельно
+                        if (!string.Equals(updatedUser.Email, email, StringComparison.OrdinalIgnoreCase))
+                        {
+                            await _supabase.Auth.Update(new UserAttributes { Email = email });
+                        }
+                    }
+                    catch (Supabase.Gotrue.Exceptions.GotrueException ex) when (ex.Message.Contains("email_address_invalid"))
+                    {
+                        // Пропускаем ошибку валидации email, но профиль уже обновлен
+                        Console.WriteLine($"Warning: Could not update auth email: {ex.Message}");
+                    }
                 }
-                else
-                {
-                    Console.WriteLine($"Update failed: {result.ResponseMessage.ReasonPhrase}");
-                }
+
+                Console.WriteLine("Profile updated successfully");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Update error: {ex.Message}");
-                throw; // Можно обработать ошибку в компоненте
+                Console.WriteLine($"Update error: {ex}");
+                throw;
             }
-
-
-
         }
         public async Task<(string Url, string Error)> UploadAvatar(Stream fileStream, string fileName)
         {
